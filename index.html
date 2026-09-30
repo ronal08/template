@@ -1,0 +1,1924 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mujer Bonita — Tienda al mayor</title>
+<meta name="description" content="Perfumes originales, ropa y accesorios para dama, caballero y niños. Venta al mayor en Venezuela.">
+<script src="./js/support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Figtree:wght@300;400;500;600;700&family=Yellowtail&family=Oswald:wght@300;400;500;600&family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="./js/image-slot.js"></script>
+<style>
+body{margin:0;background:#f6f1ee;color:#241f21;font-family:'Figtree',sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#241f21;text-decoration:none}a:hover{color:#9e3450}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes drawerIn{from{transform:translateX(100%)}to{transform:none}}
+@keyframes popIn{from{opacity:0;transform:scale(0.96)}to{opacity:1;transform:none}}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes floaty{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-14px) rotate(2deg)}}
+@keyframes wiggle{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
+::selection{background:#9e3450;color:#f6f1ee}
+</style>
+</helmet>
+
+<sc-if value="{{ showAnnouncement }}" hint-placeholder-val="{{ true }}">
+<div style="background:#9e3450;color:#f6f1ee;font-size:11.5px;letter-spacing:0.12em;text-transform:uppercase;text-align:center;padding:9px 16px">Venta al mayor · Pedido mínimo 12 unidades · Perfumes 100% originales · Paga en $ o Bs.</div>
+</sc-if>
+
+<header onMouseLeave="{{ closeMega }}" style="position:sticky;top:0;z-index:40;background:rgba(246,241,238,0.94);backdrop-filter:blur(12px);border-bottom:1px solid rgba(36,31,33,0.12)">
+  <div style="max-width:1360px;margin:0 auto;padding:0 clamp(16px,4vw,40px);min-height:70px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap">
+    <a href="#" onClick="{{ goLanding }}" style="cursor:pointer;display:flex;flex-direction:column;align-items:center;line-height:1">
+      <span style="font-family:'Yellowtail',cursive;font-size:30px;color:#b3121b;margin-bottom:-5px">mujer</span>
+      <span style="font-weight:600;font-size:10.5px;letter-spacing:0.42em;color:#241f21;border-top:2px solid #241f21;padding-top:3px;margin-left:0.42em">BONITA</span>
+    </a>
+    <nav style="display:flex;gap:30px;font-size:12.5px;letter-spacing:0.14em;text-transform:uppercase;align-items:center;font-weight:500;flex-wrap:wrap">
+      <sc-for list="{{ navWorlds }}" as="n" hint-placeholder-count="3">
+        <a href="#" onClick="{{ n.go }}" onMouseEnter="{{ n.hover }}" style="color:{{ n.color }};border-bottom:2px solid {{ n.border }};padding:25px 0 21px;cursor:pointer">{{ n.label }}</a>
+      </sc-for>
+      <a href="#" onClick="{{ goQuiz }}" onMouseEnter="{{ closeMega }}" style="color:{{ navQuizColor }};border-bottom:2px solid {{ navQuizBorder }};padding:25px 0 21px;cursor:pointer">Encuentra tu perfume</a>
+    </nav>
+    <div style="display:flex;gap:22px;align-items:center;font-size:12.5px;letter-spacing:0.12em;text-transform:uppercase">
+      
+      <div style="position:relative">
+        <a href="#" onClick="{{ toggleBranchMenu }}" style="cursor:pointer;display:flex;align-items:center;gap:8px;border:1px solid rgba(36,31,33,0.22);padding:8px 14px;border-radius:99px;font-size:11.5px;letter-spacing:0.1em;text-transform:uppercase;white-space:nowrap" style-hover="border-color:#241f21">
+          <span style="width:7px;height:7px;border-radius:99px;background:#b3121b;flex:none"></span>
+          <span style="color:rgba(36,31,33,0.55)">Sucursal:</span> {{ branchName }} ▾
+        </a>
+        <sc-if value="{{ branchMenuOpen }}" hint-placeholder-val="{{ false }}">
+        <div style="position:absolute;top:calc(100% + 10px);right:0;width:320px;background:#fdfbf9;border:1px solid rgba(36,31,33,0.12);box-shadow:0 24px 60px rgba(36,31,33,0.18);padding:18px;display:flex;flex-direction:column;gap:6px;text-transform:none;letter-spacing:0;animation:popIn 0.2s ease both;z-index:50">
+          <span style="font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(36,31,33,0.5);padding:0 6px 8px">¿Desde dónde compras?</span>
+          <sc-for list="{{ branchOptions }}" as="b" hint-placeholder-count="4">
+            <div onClick="{{ b.pick }}" style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 12px;cursor:pointer;background:{{ b.bg }};border:1px solid {{ b.bd }}" style-hover="background:#f1e6e0">
+              <div style="display:flex;flex-direction:column;gap:2px">
+                <span style="font-family:'Marcellus',serif;font-size:16px">{{ b.name }}</span>
+                <span style="font-size:12px;color:rgba(36,31,33,0.55)">{{ b.addr }}</span>
+              </div>
+              <span style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#b3121b">{{ b.mark }}</span>
+            </div>
+          </sc-for>
+        </div>
+        </sc-if>
+      </div>
+      <span style="color:rgba(36,31,33,0.55)">Buscar</span>
+      <a href="#" onClick="{{ openCart }}" style="cursor:pointer;display:flex;align-items:center;gap:7px">Bolsa
+        <span style="background:#9e3450;color:#f6f1ee;border-radius:99px;min-width:19px;height:19px;display:inline-flex;align-items:center;justify-content:center;font-size:11px;letter-spacing:0">{{ cartCount }}</span>
+      </a>
+    </div>
+  </div>
+  <sc-if value="{{ megaOpen }}" hint-placeholder-val="{{ false }}">
+  <div style="position:absolute;top:100%;left:0;right:0;background:#fdfbf9;border-bottom:1px solid rgba(36,31,33,0.12);box-shadow:0 30px 60px rgba(36,31,33,0.14);animation:popIn 0.22s ease both">
+    <div style="max-width:1360px;margin:0 auto;padding:34px clamp(16px,4vw,40px) 40px;display:flex;gap:32px;align-items:stretch">
+      <div style="flex:3 1 0;min-width:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px">
+      <sc-for list="{{ megaCols }}" as="c" hint-placeholder-count="4">
+        <div style="display:flex;flex-direction:column;gap:11px">
+          <span style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:#b3121b;font-weight:600">{{ c.title }}</span>
+          <sc-for list="{{ c.links }}" as="l" hint-placeholder-count="4">
+            <a href="#" onClick="{{ l.go }}" style="font-size:14px;cursor:pointer;color:#241f21" style-hover="color:#b3121b">{{ l.name }}</a>
+          </sc-for>
+        </div>
+      </sc-for>
+      </div>
+      <div onClick="{{ megaPromo.go }}" style="flex:0 0 clamp(160px,22vw,280px);position:relative;min-height:230px;cursor:pointer;overflow:hidden">
+        <image-slot id="mega-{{ megaPromo.key }}" shape="rect" src="{{ megaPromo.img }}" placeholder="Mundo {{ megaPromo.label }}"></image-slot>
+        <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(20,16,17,0.72), rgba(20,16,17,0) 60%);display:flex;align-items:flex-end;padding:18px;pointer-events:none">
+          <span style="color:#f6f1ee;font-family:'Marcellus',serif;font-size:20px">Ver mundo {{ megaPromo.label }} →</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  </sc-if>
+</header>
+
+<!-- ============ LANDING GENERAL ============ -->
+<sc-if value="{{ isLanding }}" hint-placeholder-val="{{ true }}">
+<main style="background:#f6f1ee">
+
+  <!-- HERO -->
+  <section style="position:relative;height:90vh;min-height:600px;overflow:hidden">
+    <div style="position:absolute;inset:0"><image-slot id="landing-hero" shape="rect" src="{{ landHeroImg }}" placeholder="Campaña general — perfumería"></image-slot></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(to right, rgba(36,31,33,0.55) 0%, rgba(36,31,33,0.1) 60%), linear-gradient(to top, rgba(36,31,33,0.5) 0%, rgba(36,31,33,0) 45%);pointer-events:none"></div>
+    <div style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:0 clamp(16px,4vw,40px) 56px;pointer-events:none">
+      <div style="max-width:1360px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr auto;gap:32px;align-items:end">
+        <div style="display:flex;flex-direction:column;gap:16px;animation:fadeUp 0.9s ease both">
+          <span style="color:#f6f1ee;font-size:12px;letter-spacing:0.3em;text-transform:uppercase">Temporada 2026 · Perfumería</span>
+          <h1 style="margin:0;font-family:'Marcellus',serif;font-weight:400;color:#f6f1ee;font-size:clamp(44px,6.6vw,96px);line-height:0.96;max-width:10em">Un perfume para cada quien en casa.</h1>
+          <p style="margin:0;color:rgba(246,241,238,0.9);font-size:16px;line-height:1.6;max-width:440px">Originales de Lattafa, Chanel, Dior, Armani y más. Para ella, para él y para los peques — en cuatro ciudades.</p>
+          <div style="display:flex;gap:10px;margin-top:8px;flex-wrap:wrap">
+            <a href="#" onClick="{{ goDamaHome }}" style="pointer-events:auto;background:#f6f1ee;color:#241f21;padding:15px 30px;font-size:12.5px;letter-spacing:0.16em;text-transform:uppercase;cursor:pointer" style-hover="background:#b3121b;color:#f6f1ee">Comprar Dama</a>
+            <a href="#" onClick="{{ goCabHome }}" style="pointer-events:auto;background:#f6f1ee;color:#241f21;padding:15px 30px;font-size:12.5px;letter-spacing:0.16em;text-transform:uppercase;cursor:pointer" style-hover="background:#b3121b;color:#f6f1ee">Comprar Caballero</a>
+            <a href="#" onClick="{{ goKidHome }}" style="pointer-events:auto;background:#f6f1ee;color:#241f21;padding:15px 30px;font-size:12.5px;letter-spacing:0.16em;text-transform:uppercase;cursor:pointer" style-hover="background:#b3121b;color:#f6f1ee">Comprar Niños</a>
+          </div>
+        </div>
+        <div onClick="{{ spot.open }}" style="pointer-events:auto;cursor:pointer;display:flex;gap:14px;align-items:center;background:rgba(246,241,238,0.14);backdrop-filter:blur(14px);border:1px solid rgba(246,241,238,0.35);padding:12px 16px 12px 12px;color:#f6f1ee;animation:fadeUp 1.2s ease both;transition:background 0.3s" style-hover="background:rgba(246,241,238,0.26)">
+          <div style="width:64px;height:80px;flex:none;overflow:hidden;background:#ebe3dd"><image-slot id="prod-{{ spot.slug }}" shape="rect" src="{{ spot.img }}" placeholder="{{ spot.name }}"></image-slot></div>
+          <div style="display:flex;flex-direction:column;gap:3px;min-width:150px">
+            <span style="font-size:10.5px;letter-spacing:0.22em;text-transform:uppercase;opacity:0.8">El más pedido esta semana</span>
+            <span style="font-family:'Marcellus',serif;font-size:19px;line-height:1.1">{{ spot.brand }} · {{ spot.name }}</span>
+            <span style="font-size:12.5px;opacity:0.85">{{ spot.priceLabel }} → Ver ficha</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROMESAS -->
+  <section style="border-bottom:1px solid rgba(36,31,33,0.12);background:#f6f1ee">
+    <div style="max-width:1360px;margin:0 auto;padding:0 clamp(16px,4vw,40px);display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))">
+      <sc-for list="{{ landingPromises }}" as="p" hint-placeholder-count="4">
+        <div style="display:flex;align-items:center;gap:12px;padding:18px 8px;font-size:12.5px;letter-spacing:0.06em;color:rgba(36,31,33,0.75)">
+          <span style="width:6px;height:6px;border-radius:99px;background:#b3121b;flex:none"></span>{{ p.t }}
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- TRES MUNDOS: paneles expandibles -->
+  <section style="max-width:1360px;margin:0 auto;padding:80px clamp(16px,4vw,40px) 0;animation:fadeUp both;animation-timeline:view();animation-range:entry 0% entry 40%">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:28px;flex-wrap:wrap">
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <span style="font-size:12px;letter-spacing:0.28em;text-transform:uppercase;color:#b3121b">Tres mundos, una casa</span>
+        <h2 style="margin:0;font-family:'Marcellus',serif;font-weight:400;font-size:clamp(28px,3.4vw,42px)">Elige el tuyo</h2>
+      </div>
+      <span style="font-size:13px;color:rgba(36,31,33,0.55)">Pasa el cursor para descubrir cada mundo</span>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:10px">
+      <div onClick="{{ goDamaHome }}" style="flex:1.4 1 260px;position:relative;overflow:hidden;cursor:pointer;background:#ebe3dd;transition:flex 0.7s cubic-bezier(0.22,1,0.36,1);min-width:0;height:clamp(380px,56vh,600px)" style-hover="flex:2.4 1 260px">
+        <div style="position:absolute;inset:0;transition:transform 0.9s cubic-bezier(0.22,1,0.36,1)" style-hover="transform:scale(1.04)"><image-slot id="feat-dama" shape="rect" src="{{ tileDamaImg }}" placeholder="Campaña Dama"></image-slot></div>
+        <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(36,31,33,0.75), rgba(36,31,33,0) 55%);display:flex;flex-direction:column;justify-content:flex-end;padding:28px;gap:8px;pointer-events:none">
+          <span style="color:#f6f1ee;font-size:11px;letter-spacing:0.3em;text-transform:uppercase">01 · Mundo Dama</span>
+          <span style="color:#f6f1ee;font-family:'Marcellus',serif;font-size:clamp(24px,2.6vw,38px);line-height:1.05">Tu perfume te está buscando</span>
+          <span style="color:#f6f1ee;font-size:11.5px;letter-spacing:0.18em;text-transform:uppercase;border-bottom:1px solid #f6f1ee;align-self:flex-start;padding-bottom:3px;white-space:nowrap">Entrar →</span>
+        </div>
+      </div>
+      <div onClick="{{ goCabHome }}" style="flex:1 1 260px;position:relative;overflow:hidden;cursor:pointer;background:#131313;transition:flex 0.7s cubic-bezier(0.22,1,0.36,1);min-width:0;height:clamp(380px,56vh,600px)" style-hover="flex:2.4 1 260px">
+        <div style="position:absolute;inset:0;filter:grayscale(0.85);transition:transform 0.9s cubic-bezier(0.22,1,0.36,1), filter 0.6s" style-hover="transform:scale(1.04);filter:grayscale(0)"><image-slot id="feat-cab" shape="rect" src="{{ tileCabImg }}" placeholder="Campaña Caballero"></image-slot></div>
+        <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(19,19,19,0.82), rgba(19,19,19,0) 55%);display:flex;flex-direction:column;justify-content:flex-end;padding:28px;gap:8px;pointer-events:none">
+          <span style="color:#c98a3d;font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:0.4em;text-transform:uppercase">02 · Mundo Caballero</span>
+          <span style="color:#efece6;font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:clamp(26px,3vw,44px);line-height:0.98">Huele a poder</span>
+          <span style="color:#efece6;font-family:'Oswald',sans-serif;font-size:12px;letter-spacing:0.24em;text-transform:uppercase;border-bottom:1px solid #c98a3d;align-self:flex-start;padding-bottom:3px;white-space:nowrap">Entrar →</span>
+        </div>
+      </div>
+      <div onClick="{{ goKidHome }}" style="flex:1 1 260px;position:relative;overflow:hidden;cursor:pointer;background:#ffd23f;transition:flex 0.7s cubic-bezier(0.22,1,0.36,1);min-width:0;height:clamp(380px,56vh,600px)" style-hover="flex:2.4 1 260px">
+        <div style="position:absolute;inset:0;transition:transform 0.9s cubic-bezier(0.22,1,0.36,1)" style-hover="transform:scale(1.04)"><image-slot id="feat-kid" shape="rect" src="{{ tileKidImg }}" placeholder="Campaña Niños"></image-slot></div>
+        <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(45,36,64,0.8), rgba(45,36,64,0) 55%);display:flex;flex-direction:column;justify-content:flex-end;padding:28px;gap:8px;pointer-events:none;font-family:'Fredoka',sans-serif">
+          <span style="align-self:flex-start;background:#ffd23f;color:#2d2440;padding:5px 12px;border-radius:99px;font-size:11.5px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;transform:rotate(-2deg)">03 · Mundo Niños</span>
+          <span style="color:#fff;font-weight:700;font-size:clamp(24px,2.8vw,40px);line-height:1.02">Pequeños con estilo</span>
+          <span style="color:#fff;font-size:13px;font-weight:600;white-space:nowrap">Entrar →</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NOVEDADES -->
+  <section style="max-width:1360px;margin:0 auto;padding:88px clamp(16px,4vw,40px) 24px;animation:fadeUp both;animation-timeline:view();animation-range:entry 0% entry 40%">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:28px;flex-wrap:wrap">
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <span style="font-size:12px;letter-spacing:0.28em;text-transform:uppercase;color:#b3121b">Novedades</span>
+        <h2 style="margin:0;font-family:'Marcellus',serif;font-weight:400;font-size:clamp(28px,3.4vw,42px)">Lo que acaba de llegar</h2>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <sc-for list="{{ landingTabs }}" as="b" hint-placeholder-count="3">
+          <button onClick="{{ b.select }}" style="border:1px solid {{ b.bd }};background:{{ b.bg }};color:{{ b.fg }};padding:9px 20px;border-radius:99px;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;font-family:'Figtree',sans-serif">{{ b.name }}</button>
+        </sc-for>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:22px">
+      <sc-for list="{{ landingProducts }}" as="p" hint-placeholder-count="4">
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div style="aspect-ratio:4/5;background:#ebe3dd;position:relative;cursor:pointer;overflow:hidden" onClick="{{ p.open }}">
+            <div style="position:absolute;inset:0;transition:transform 0.6s cubic-bezier(0.22,1,0.36,1)" style-hover="transform:scale(1.04)"><image-slot id="prod-{{ p.slug }}" shape="rect" src="{{ p.img }}" credit="{{ p.credit }}" credit-href="{{ p.chref }}" placeholder="Foto: {{ p.brand }} {{ p.name }}"></image-slot></div>
+            <span style="position:absolute;top:12px;left:12px;background:#f6f1ee;font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;padding:5px 10px;pointer-events:none">{{ p.badge }}</span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:3px">
+            <span style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:#b3121b">{{ p.brand }}</span>
+            <a href="#" onClick="{{ p.open }}" style="font-family:'Marcellus',serif;font-size:19px;cursor:pointer">{{ p.name }}</a>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px;gap:8px">
+              <span style="font-size:13.5px;font-weight:600">{{ p.priceLabel }}</span>
+              <button onClick="{{ p.add }}" style="border:none;background:#241f21;color:#f6f1ee;padding:8px 14px;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;font-family:'Figtree',sans-serif" style-hover="background:#b3121b">Añadir</button>
+            </div>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- PERFUME DE LA SEMANA -->
+  <section style="background:#241f21;color:#f6f1ee;margin-top:72px">
+    <div style="max-width:1360px;margin:0 auto;padding:clamp(48px,6vw,96px) clamp(16px,4vw,40px);display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(28px,5vw,72px);align-items:center">
+      <div style="position:relative;aspect-ratio:4/5;overflow:hidden;background:#3a3236">
+        <image-slot id="prod-{{ spot.slug }}" shape="rect" src="{{ spot.img }}" credit="{{ spot.credit }}" credit-href="{{ spot.chref }}" placeholder="{{ spot.name }}"></image-slot>
+        <span style="position:absolute;top:18px;left:18px;background:#b3121b;color:#f6f1ee;font-size:10.5px;letter-spacing:0.2em;text-transform:uppercase;padding:7px 12px;pointer-events:none">Perfume de la semana</span>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:22px;animation:fadeUp both;animation-timeline:view();animation-range:entry 0% entry 40%">
+        <span style="font-size:12px;letter-spacing:0.28em;text-transform:uppercase;color:#d98ea4">{{ spot.brand }} · {{ spot.family }}</span>
+        <h2 style="margin:0;font-family:'Marcellus',serif;font-weight:400;font-size:clamp(38px,5vw,72px);line-height:0.98">{{ spot.name }}</h2>
+        <p style="margin:0;font-size:15.5px;line-height:1.75;color:rgba(246,241,238,0.72);max-width:460px">{{ spot.story }}</p>
+        <div style="display:flex;flex-direction:column;gap:12px;border-top:1px solid rgba(246,241,238,0.15);padding-top:20px">
+          <sc-for list="{{ spotNotes }}" as="n" hint-placeholder-count="3">
+            <div style="display:grid;grid-template-columns:90px 1fr;gap:16px;align-items:center">
+              <span style="font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(246,241,238,0.5)">{{ n.label }}</span>
+              <div style="display:flex;flex-direction:column;gap:5px">
+                <span style="font-size:13.5px">{{ n.text }}</span>
+                <div style="height:2px;background:rgba(246,241,238,0.12)"><div style="height:2px;background:#d98ea4;width:{{ n.w }}"></div></div>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+        <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:4px">
+          <button onClick="{{ spot.add }}" style="border:none;background:#f6f1ee;color:#241f21;padding:16px 30px;font-size:12.5px;letter-spacing:0.16em;text-transform:uppercase;cursor:pointer;font-family:'Figtree',sans-serif" style-hover="background:#b3121b;color:#f6f1ee">Añadir — {{ spot.priceLabel }}</button>
+          <a href="#" onClick="{{ spot.open }}" style="color:#f6f1ee;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;border-bottom:1px solid rgba(246,241,238,0.5);padding-bottom:3px;cursor:pointer">Ver ficha</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAMILIAS -->
+  <section style="max-width:1360px;margin:0 auto;padding:88px clamp(16px,4vw,40px) 24px;animation:fadeUp both;animation-timeline:view();animation-range:entry 0% entry 40%">
+    <div style="display:flex;flex-direction:column;gap:6px;margin-bottom:30px">
+      <span style="font-size:12px;letter-spacing:0.28em;text-transform:uppercase;color:#b3121b">Por familia olfativa</span>
+      <h2 style="margin:0;font-family:'Marcellus',serif;font-weight:400;font-size:clamp(28px,3.4vw,42px)">¿Cómo quieres oler hoy?</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:14px">
+      <sc-for list="{{ landingFamilies }}" as="f" hint-placeholder-count="4">
+        <div onClick="{{ f.go }}" style="position:relative;aspect-ratio:1/1;overflow:hidden;cursor:pointer;background:#ebe3dd">
+          <div style="position:absolute;inset:0;transition:transform 0.7s cubic-bezier(0.22,1,0.36,1)" style-hover="transform:scale(1.06)"><image-slot id="fam-{{ f.key }}" shape="rect" src="{{ f.img }}" credit="{{ f.credit }}" credit-href="{{ f.href }}" placeholder="{{ f.name }}"></image-slot></div>
+          <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(36,31,33,0.7), rgba(36,31,33,0) 55%);display:flex;flex-direction:column;justify-content:flex-end;padding:22px;gap:4px;pointer-events:none">
+            <span style="color:#f6f1ee;font-family:'Marcellus',serif;font-size:26px">{{ f.name }}</span>
+            <span style="color:rgba(246,241,238,0.85);font-size:12.5px;line-height:1.5">{{ f.desc }}</span>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- GUÍA DE REGALOS -->
+  <section style="max-width:1360px;margin:0 auto;padding:72px clamp(16px,4vw,40px) 24px;animation:fadeUp both;animation-timeline:view();animation-range:entry 0% entry 40%">
+    <div style="display:flex;flex-direction:column;gap:6px;margin-bottom:30px">
+      <span style="font-size:12px;letter-spacing:0.28em;text-transform:uppercase;color:#b3121b">Guía de regalos</span>
+      <h2 style="margin:0;font-family:'Marcellus',serif;font-weight:400;font-size:clamp(28px,3.4vw,42px)">Regala bien, gasta lo justo</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:14px">
+      <sc-for list="{{ giftTiers }}" as="g" hint-placeholder-count="3">
+        <div onClick="{{ g.go }}" style="border:1px solid rgba(36,31,33,0.15);padding:32px 28px;display:flex;flex-direction:column;gap:14px;cursor:pointer;background:#fdfbf9;min-height:240px;justify-content:space-between;transition:background 0.3s, transform 0.3s" style-hover="background:#241f21;color:#f6f1ee;transform:translateY(-4px)">
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <span style="font-size:11px;letter-spacing:0.24em;text-transform:uppercase;opacity:0.6">{{ g.kicker }}</span>
+            <span style="font-family:'Marcellus',serif;font-size:clamp(34px,3.6vw,48px);line-height:1">{{ g.title }}</span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <span style="font-size:14px;line-height:1.6;opacity:0.75">{{ g.desc }}</span>
+            <span style="font-size:11.5px;letter-spacing:0.16em;text-transform:uppercase;color:#b3121b">{{ g.count }} opciones →</span>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- MARCAS -->
+  <section style="overflow:hidden;padding:26px 0;margin-top:56px;border-top:1px solid rgba(36,31,33,0.12);border-bottom:1px solid rgba(36,31,33,0.12)">
+    <div style="display:flex;gap:56px;white-space:nowrap;animation:marquee 34s linear infinite;font-family:'Marcellus',serif;font-size:17px;letter-spacing:0.24em;text-transform:uppercase;color:rgba(36,31,33,0.6)">
+      <sc-for list="{{ landingBrands }}" as="m" hint-placeholder-count="10"><span>{{ m.t }}</span></sc-for>
+    </div>
+  </section>
+
+  <!-- ROPA / ACCESORIOS -->
+  <section style="max-width:1360px;margin:0 auto;padding:80px clamp(16px,4vw,40px) 0;animation:fadeUp both;animation-timeline:view();animation-range:entry 0% entry 40%">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px">
+      <div onClick="{{ goDamaRopa }}" style="position:relative;aspect-ratio:4/3;overflow:hidden;cursor:pointer;background:#ebe3dd">
+        <div style="position:absolute;inset:0;transition:transform 0.8s cubic-bezier(0.22,1,0.36,1)" style-hover="transform:scale(1.04)"><image-slot id="land-ropa" shape="rect" src="{{ ropaLandImg }}" placeholder="Ropa"></image-slot></div>
+        <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(36,31,33,0.65), rgba(36,31,33,0) 55%);display:flex;flex-direction:column;justify-content:flex-end;padding:28px;gap:8px;pointer-events:none">
+          <span style="color:#f6f1ee;font-size:11.5px;letter-spacing:0.28em;text-transform:uppercase">Ya disponible</span>
+          <span style="color:#f6f1ee;font-family:'Marcellus',serif;font-size:clamp(26px,2.8vw,36px)">La ropa llegó</span>
+          <span style="color:#f6f1ee;font-size:11.5px;letter-spacing:0.18em;text-transform:uppercase;border-bottom:1px solid #f6f1ee;align-self:flex-start;padding-bottom:3px">Ver ropa →</span>
+        </div>
+      </div>
+      <div onClick="{{ goDamaAccs }}" style="position:relative;aspect-ratio:4/3;overflow:hidden;cursor:pointer;background:#ebe3dd">
+        <div style="position:absolute;inset:0;transition:transform 0.8s cubic-bezier(0.22,1,0.36,1)" style-hover="transform:scale(1.04)"><image-slot id="land-accs" shape="rect" src="{{ accLandImg }}" placeholder="Accesorios"></image-slot></div>
+        <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(36,31,33,0.65), rgba(36,31,33,0) 55%);display:flex;flex-direction:column;justify-content:flex-end;padding:28px;gap:8px;pointer-events:none">
+          <span style="color:#f6f1ee;font-size:11.5px;letter-spacing:0.28em;text-transform:uppercase">El detalle final</span>
+          <span style="color:#f6f1ee;font-family:'Marcellus',serif;font-size:clamp(26px,2.8vw,36px)">Accesorios</span>
+          <span style="color:#f6f1ee;font-size:11.5px;letter-spacing:0.18em;text-transform:uppercase;border-bottom:1px solid #f6f1ee;align-self:flex-start;padding-bottom:3px">Ver accesorios →</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EL RITUAL -->
+  <section style="max-width:1360px;margin:0 auto;padding:96px clamp(16px,4vw,40px) 24px;animation:fadeUp both;animation-timeline:view();animation-range:entry 0% entry 40%">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:0;border-top:1px solid rgba(36,31,33,0.15)">
+      <sc-for list="{{ ritual }}" as="r" hint-placeholder-count="3">
+        <div onClick="{{ r.go }}" style="padding:36px 28px 36px 0;display:flex;flex-direction:column;gap:16px;cursor:pointer;border-bottom:1px solid rgba(36,31,33,0.15)">
+          <span style="font-family:'Marcellus',serif;font-size:clamp(56px,6vw,88px);line-height:0.9;color:rgba(36,31,33,0.12)">{{ r.n }}</span>
+          <span style="font-family:'Marcellus',serif;font-size:24px">{{ r.title }}</span>
+          <span style="font-size:14px;line-height:1.65;color:rgba(36,31,33,0.65);max-width:320px">{{ r.desc }}</span>
+          <span style="font-size:11.5px;letter-spacing:0.16em;text-transform:uppercase;color:#b3121b">{{ r.cta }} →</span>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- SUCURSALES -->
+  <section style="max-width:1360px;margin:0 auto;padding:72px clamp(16px,4vw,40px) 24px;animation:fadeUp both;animation-timeline:view();animation-range:entry 0% entry 40%">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:30px;flex-wrap:wrap">
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <span style="font-size:12px;letter-spacing:0.28em;text-transform:uppercase;color:#b3121b">Nuestras sucursales</span>
+        <h2 style="margin:0;font-family:'Marcellus',serif;font-weight:400;font-size:clamp(28px,3.4vw,42px)">Cuatro ciudades, un mismo cariño</h2>
+      </div>
+      <span style="font-size:13px;color:rgba(36,31,33,0.55)">Estás comprando desde <strong style="color:#241f21">{{ branchName }}</strong></span>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:14px">
+      <sc-for list="{{ branchCards }}" as="b" hint-placeholder-count="4">
+        <div onClick="{{ b.pick }}" style="border:1px solid {{ b.bd }};background:{{ b.bg }};color:{{ b.fg }};padding:28px 24px;display:flex;flex-direction:column;gap:14px;cursor:pointer;min-height:220px;justify-content:space-between;transition:transform 0.3s" style-hover="transform:translateY(-4px)">
+          <div style="display:flex;flex-direction:column;gap:6px">
+            <span style="font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:#b3121b">{{ b.mark }}</span>
+            <span style="font-family:'Marcellus',serif;font-size:30px">{{ b.name }}</span>
+            <span style="font-size:13px;opacity:0.65;line-height:1.5">{{ b.addr }}</span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:6px;font-size:12.5px;opacity:0.85">
+            <span>Lun–Sáb 10:00–20:00 · Dom 12:00–19:00</span>
+            <span style="font-size:11.5px;letter-spacing:0.16em;text-transform:uppercase">{{ b.cta }} →</span>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- OPINIONES -->
+  <section style="max-width:1360px;margin:0 auto;padding:72px clamp(16px,4vw,40px) 24px;animation:fadeUp both;animation-timeline:view();animation-range:entry 0% entry 40%">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:14px">
+      <sc-for list="{{ reviews }}" as="r" hint-placeholder-count="3">
+        <div style="background:#fdfbf9;border:1px solid rgba(36,31,33,0.12);padding:30px 28px;display:flex;flex-direction:column;gap:16px">
+          <span style="font-family:'Marcellus',serif;font-size:40px;line-height:0.6;color:#b3121b">“</span>
+          <span style="font-family:'Marcellus',serif;font-size:19px;line-height:1.4">{{ r.text }}</span>
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;border-top:1px solid rgba(36,31,33,0.12);padding-top:14px">
+            <span style="font-size:13px;font-weight:600">{{ r.who }}</span>
+            <span style="font-size:11.5px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(36,31,33,0.5)">{{ r.where }}</span>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- COMUNIDAD -->
+  <section style="max-width:1360px;margin:0 auto;padding:72px clamp(16px,4vw,40px) 24px;animation:fadeUp both;animation-timeline:view();animation-range:entry 0% entry 40%">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:24px;flex-wrap:wrap">
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <span style="font-size:12px;letter-spacing:0.28em;text-transform:uppercase;color:#b3121b">Comunidad</span>
+        <h2 style="margin:0;font-family:'Marcellus',serif;font-weight:400;font-size:clamp(28px,3.4vw,42px)">#MujerBonitaVzla</h2>
+      </div>
+      <span style="font-size:13px;color:rgba(36,31,33,0.55)">Etiquétanos y aparece aquí</span>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,110px),1fr));gap:8px">
+      <sc-for list="{{ community }}" as="c" hint-placeholder-count="6">
+        <div onClick="{{ c.go }}" style="aspect-ratio:1/1;overflow:hidden;cursor:pointer;background:#ebe3dd;position:relative">
+          <div style="position:absolute;inset:0;transition:transform 0.6s cubic-bezier(0.22,1,0.36,1)" style-hover="transform:scale(1.06)"><image-slot id="ig-{{ c.i }}" shape="rect" src="{{ c.img }}" placeholder="Foto comunidad"></image-slot></div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- QUIZ -->
+  <section style="max-width:1360px;margin:0 auto;padding:72px clamp(16px,4vw,40px) 90px;animation:fadeUp both;animation-timeline:view();animation-range:entry 0% entry 40%">
+    <div style="background:#241f21;color:#f6f1ee;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));align-items:center">
+      <div style="padding:clamp(32px,5vw,64px);display:flex;flex-direction:column;gap:18px">
+        <span style="font-size:12px;letter-spacing:0.28em;text-transform:uppercase;color:#d98ea4">Quiz · 30 segundos</span>
+        <h2 style="margin:0;font-family:'Marcellus',serif;font-weight:400;font-size:clamp(28px,3.6vw,42px);line-height:1.12">¿No sabes cuál elegir? Te ayudamos.</h2>
+        <p style="margin:0;font-size:15px;line-height:1.7;color:rgba(246,241,238,0.7);max-width:420px">Tres preguntas y te decimos exactamente qué perfume llevar — para ti o para regalar.</p>
+        <a href="#" onClick="{{ goQuiz }}" style="background:#f6f1ee;color:#241f21;padding:15px 32px;font-size:12.5px;letter-spacing:0.16em;text-transform:uppercase;cursor:pointer;align-self:flex-start" style-hover="background:#b3121b;color:#f6f1ee">Empezar el quiz</a>
+      </div>
+      <div style="min-height:340px;height:100%;position:relative"><image-slot id="landing-quiz" shape="rect" src="{{ quizImg }}" placeholder="Imagen quiz"></image-slot></div>
+    </div>
+  </section>
+</main>
+</sc-if>
+
+<!-- ============ INICIO CABALLERO ============ -->
+<sc-if value="{{ isHomeCab }}" hint-placeholder-val="{{ false }}">
+<main style="background:#131313;color:#efece6">
+  <section style="max-width:1360px;margin:0 auto;padding:clamp(40px,6vw,80px) clamp(16px,4vw,40px) 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(24px,4vw,64px);align-items:center">
+    <div style="display:flex;flex-direction:column;gap:22px;animation:fadeUp 0.8s ease both">
+      <span style="font-family:'Oswald',sans-serif;font-size:12px;letter-spacing:0.5em;text-transform:uppercase;color:#c98a3d">Mundo Caballero</span>
+      <h1 style="margin:0;font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:clamp(52px,7vw,110px);line-height:0.95;letter-spacing:-0.01em">Huele<br><span style="color:transparent;-webkit-text-stroke:1.5px #efece6">a poder</span></h1>
+      <p style="margin:0;font-size:15px;line-height:1.7;color:rgba(239,236,230,0.6);max-width:380px">Perfumes originales, ropa con carácter y los detalles que separan un look de un uniforme.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <a href="#" onClick="{{ goPerfumes }}" style="background:#c98a3d;color:#131313;padding:16px 34px;font-family:'Oswald',sans-serif;font-size:13px;letter-spacing:0.24em;text-transform:uppercase;cursor:pointer;font-weight:500" style-hover="background:#efece6">Ver perfumes</a>
+        <a href="#" onClick="{{ goQuiz }}" style="border:1px solid rgba(239,236,230,0.4);color:#efece6;padding:16px 34px;font-family:'Oswald',sans-serif;font-size:13px;letter-spacing:0.24em;text-transform:uppercase;cursor:pointer" style-hover="border-color:#c98a3d;color:#c98a3d">Hacer el quiz</a>
+      </div>
+      <div style="display:flex;gap:36px;border-top:1px solid rgba(239,236,230,0.15);padding-top:20px;margin-top:8px">
+        <div style="display:flex;flex-direction:column;gap:2px"><span style="font-family:'Oswald',sans-serif;font-size:26px;color:#c98a3d">100%</span><span style="font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(239,236,230,0.5)">Originales</span></div>
+        <div style="display:flex;flex-direction:column;gap:2px"><span style="font-family:'Oswald',sans-serif;font-size:26px;color:#c98a3d">24–72 h</span><span style="font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(239,236,230,0.5)">Envío nacional</span></div>
+        <div style="display:flex;flex-direction:column;gap:2px"><span style="font-family:'Oswald',sans-serif;font-size:26px;color:#c98a3d">$ / Bs.</span><span style="font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(239,236,230,0.5)">Como prefieras</span></div>
+      </div>
+    </div>
+    <div style="position:relative;min-height:440px;height:64vh">
+      <div style="position:absolute;inset:0;border:1px solid rgba(201,138,61,0.5);transform:translate(16px,16px);pointer-events:none"></div>
+      <div style="position:absolute;inset:0;filter:grayscale(0.85);transition:filter 0.6s ease" style-hover="filter:grayscale(0)"><image-slot id="hero-cab-v2" shape="rect" src="{{ cabHeroImg }}" placeholder="Hombre aplicándose perfume"></image-slot></div>
+    </div>
+  </section>
+  <section style="overflow:hidden;padding:34px 0;border-bottom:1px solid rgba(239,236,230,0.12)">
+    <div style="display:flex;gap:48px;white-space:nowrap;animation:marquee 26s linear infinite;font-family:'Oswald',sans-serif;font-size:40px;text-transform:uppercase;font-weight:600">
+      <sc-for list="{{ cabMarquee }}" as="m" hint-placeholder-count="8"><span style="color:{{ m.c }};-webkit-text-stroke:{{ m.s }}">{{ m.t }}</span></sc-for>
+    </div>
+  </section>
+  <section style="max-width:1360px;margin:0 auto;padding:70px clamp(16px,4vw,40px)">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:24px;margin-bottom:38px;flex-wrap:wrap">
+      <h2 style="margin:0;font-family:'Oswald',sans-serif;font-weight:500;text-transform:uppercase;font-size:clamp(26px,3.2vw,36px);letter-spacing:0.04em">El arsenal</h2>
+      <a href="#" onClick="{{ goPerfumes }}" style="color:#c98a3d;font-family:'Oswald',sans-serif;font-size:12.5px;letter-spacing:0.24em;text-transform:uppercase;border-bottom:1px solid #c98a3d;padding-bottom:3px;cursor:pointer">Todo el catálogo</a>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:1px;background:rgba(239,236,230,0.15);border:1px solid rgba(239,236,230,0.15)">
+      <sc-for list="{{ featured }}" as="p" hint-placeholder-count="4">
+        <div style="background:#131313;padding:22px;display:flex;flex-direction:column;gap:14px;transition:background 0.3s" style-hover="background:#1d1a16">
+          <div style="aspect-ratio:4/5;position:relative;cursor:pointer;overflow:hidden" onClick="{{ p.open }}">
+            <image-slot id="prod-{{ p.slug }}" shape="rect" src="{{ p.img }}" credit="{{ p.credit }}" credit-href="{{ p.chref }}" placeholder="Foto: {{ p.brand }} {{ p.name }}"></image-slot>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:4px">
+            <span style="font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:0.3em;text-transform:uppercase;color:#c98a3d">{{ p.brand }}</span>
+            <a href="#" onClick="{{ p.open }}" style="color:#efece6;font-family:'Oswald',sans-serif;font-size:20px;text-transform:uppercase;letter-spacing:0.04em;cursor:pointer" style-hover="color:#c98a3d">{{ p.name }}</a>
+            <span style="font-size:12.5px;color:rgba(239,236,230,0.5)">{{ p.tagline }}</span>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px;gap:8px">
+              <span style="font-family:'Oswald',sans-serif;font-size:15px;color:#efece6">{{ p.priceLabel }}</span>
+              <button onClick="{{ p.add }}" style="border:1px solid rgba(239,236,230,0.35);background:transparent;color:#efece6;padding:8px 16px;font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;cursor:pointer" style-hover="background:#c98a3d;border-color:#c98a3d;color:#131313">Añadir</button>
+            </div>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+  <section style="max-width:1360px;margin:0 auto;padding:0 clamp(16px,4vw,40px) 70px">
+    <div style="display:flex;flex-direction:column">
+      <sc-for list="{{ cabRows }}" as="r" hint-placeholder-count="3">
+        <div onClick="{{ r.go }}" style="display:flex;justify-content:space-between;align-items:center;gap:20px;padding:26px 10px;border-top:1px solid rgba(239,236,230,0.15);cursor:pointer;transition:padding 0.3s, background 0.3s" style-hover="background:#1d1a16;padding:26px 22px">
+          <div style="display:flex;align-items:baseline;gap:22px">
+            <span style="font-family:'Oswald',sans-serif;font-size:13px;color:#c98a3d">{{ r.num }}</span>
+            <span style="font-family:'Oswald',sans-serif;font-size:clamp(24px,3.4vw,40px);text-transform:uppercase;font-weight:500">{{ r.name }}</span>
+          </div>
+          <span style="font-family:'Oswald',sans-serif;font-size:13px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(239,236,230,0.5)">{{ r.count }} →</span>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- OFERTA DE TEMPORADA -->
+  <section style="max-width:1360px;margin:0 auto;padding:0 clamp(16px,4vw,40px) 70px;animation:fadeUp both;animation-timeline:view();animation-range:entry 0% entry 40%">
+    <div onClick="{{ cabOffer.go }}" style="position:relative;min-height:420px;overflow:hidden;cursor:pointer;background:#1d1a16;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))">
+      <div style="position:relative;min-height:320px;filter:grayscale(0.6);transition:filter 0.6s" style-hover="filter:grayscale(0)"><image-slot id="cab-offer-img" shape="rect" src="{{ cabOffer.img }}" placeholder="Oferta caballero"></image-slot></div>
+      <div style="padding:clamp(32px,4vw,56px);display:flex;flex-direction:column;justify-content:center;gap:16px;border-left:1px solid rgba(201,138,61,0.4)">
+        <span style="font-family:'Oswald',sans-serif;font-size:12px;letter-spacing:0.5em;text-transform:uppercase;color:#c98a3d">Oferta de temporada</span>
+        <span style="font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:clamp(40px,5vw,72px);line-height:0.95">Lleva 2<br><span style="color:transparent;-webkit-text-stroke:1.5px #efece6">paga 1.5</span></span>
+        <span style="font-size:14.5px;line-height:1.7;color:rgba(239,236,230,0.6);max-width:380px">Combina cualquier perfume masculino con una polo o camisa y el segundo artículo va con 50% de descuento. Solo hasta fin de mes.</span>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:6px">
+          <span style="background:#c98a3d;color:#131313;padding:14px 28px;font-family:'Oswald',sans-serif;font-size:12.5px;letter-spacing:0.24em;text-transform:uppercase;font-weight:500">Armar mi combo</span>
+          <span style="font-family:'Oswald',sans-serif;font-size:12px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(239,236,230,0.5)">Código {{ cabOffer.code }}</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MÁS VENDIDOS -->
+  <section style="max-width:1360px;margin:0 auto;padding:0 clamp(16px,4vw,40px) 70px;animation:fadeUp both;animation-timeline:view();animation-range:entry 0% entry 40%">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:24px;margin-bottom:34px;flex-wrap:wrap">
+      <h2 style="margin:0;font-family:'Oswald',sans-serif;font-weight:500;text-transform:uppercase;font-size:clamp(26px,3.2vw,36px);letter-spacing:0.04em">Los más vendidos</h2>
+      <span style="font-family:'Oswald',sans-serif;font-size:12px;letter-spacing:0.24em;text-transform:uppercase;color:rgba(239,236,230,0.5)">Ranking de la semana</span>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:1px;background:rgba(239,236,230,0.15);border:1px solid rgba(239,236,230,0.15)">
+      <sc-for list="{{ cabBest }}" as="p" hint-placeholder-count="3">
+        <div onClick="{{ p.open }}" style="background:#131313;display:grid;grid-template-columns:96px 1fr;gap:18px;padding:20px;cursor:pointer;align-items:center;transition:background 0.3s" style-hover="background:#1d1a16">
+          <div style="position:relative;aspect-ratio:4/5;overflow:hidden;background:#1d1a16">
+            <image-slot id="prod-{{ p.slug }}" shape="rect" src="{{ p.img }}" placeholder="{{ p.name }}"></image-slot>
+            <span style="position:absolute;top:0;left:0;background:#c98a3d;color:#131313;font-family:'Oswald',sans-serif;font-size:13px;font-weight:600;padding:4px 9px">{{ p.rank }}</span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:5px;min-width:0">
+            <span style="font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:0.3em;text-transform:uppercase;color:#c98a3d">{{ p.brand }}</span>
+            <span style="font-family:'Oswald',sans-serif;font-size:21px;text-transform:uppercase;letter-spacing:0.04em">{{ p.name }}</span>
+            <span style="font-size:12.5px;color:rgba(239,236,230,0.5);line-height:1.4">{{ p.tagline }}</span>
+            <span style="font-family:'Oswald',sans-serif;font-size:15px;margin-top:4px">{{ p.priceLabel }}</span>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- RECIÉN LLEGADOS -->
+  <section style="max-width:1360px;margin:0 auto;padding:0 clamp(16px,4vw,40px) 70px;animation:fadeUp both;animation-timeline:view();animation-range:entry 0% entry 40%">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:24px;margin-bottom:34px;flex-wrap:wrap">
+      <h2 style="margin:0;font-family:'Oswald',sans-serif;font-weight:500;text-transform:uppercase;font-size:clamp(26px,3.2vw,36px);letter-spacing:0.04em">Recién llegados</h2>
+      <a href="#" onClick="{{ goRopa }}" style="color:#c98a3d;font-family:'Oswald',sans-serif;font-size:12.5px;letter-spacing:0.24em;text-transform:uppercase;border-bottom:1px solid #c98a3d;padding-bottom:3px;cursor:pointer">Toda la ropa</a>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr));gap:14px">
+      <sc-for list="{{ cabNew }}" as="r" hint-placeholder-count="4">
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div onClick="{{ r.open }}" style="aspect-ratio:3/4;position:relative;overflow:hidden;cursor:pointer;background:#1d1a16">
+            <div style="position:absolute;inset:0;transition:transform 0.7s cubic-bezier(0.22,1,0.36,1)" style-hover="transform:scale(1.05)"><image-slot id="cabnew-{{ r.slug }}" shape="rect" src="{{ r.img }}" credit="{{ r.credit }}" credit-href="{{ r.chref }}" placeholder="{{ r.name }}"></image-slot></div>
+            <span style="position:absolute;top:12px;left:12px;border:1px solid #efece6;color:#efece6;font-family:'Oswald',sans-serif;font-size:10.5px;letter-spacing:0.2em;text-transform:uppercase;padding:4px 9px;pointer-events:none">Nuevo</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px">
+            <a href="#" onClick="{{ r.open }}" style="color:#efece6;font-family:'Oswald',sans-serif;font-size:16px;text-transform:uppercase;letter-spacing:0.04em;cursor:pointer" style-hover="color:#c98a3d">{{ r.name }}</a>
+            <span style="font-family:'Oswald',sans-serif;font-size:14px;white-space:nowrap">{{ r.priceLabel }}</span>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- BANNERS DOBLES -->
+  <section style="max-width:1360px;margin:0 auto;padding:0 clamp(16px,4vw,40px) 70px;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;animation:fadeUp both;animation-timeline:view();animation-range:entry 0% entry 40%">
+    <div onClick="{{ goPerfumes }}" style="position:relative;min-height:380px;overflow:hidden;cursor:pointer;background:#1d1a16">
+      <div style="position:absolute;inset:0;transition:transform 0.8s cubic-bezier(0.22,1,0.36,1)" style-hover="transform:scale(1.04)"><image-slot id="cab-banner-noche" shape="rect" src="{{ cabBannerNoche }}" placeholder="Perfumes de noche"></image-slot></div>
+      <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(19,19,19,0.9), rgba(19,19,19,0) 60%);display:flex;flex-direction:column;justify-content:flex-end;padding:30px;gap:8px;pointer-events:none">
+        <span style="font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:0.4em;text-transform:uppercase;color:#c98a3d">Edición noche</span>
+        <span style="font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:clamp(28px,3vw,42px);line-height:0.98">Los que dejan estela</span>
+        <span style="font-family:'Oswald',sans-serif;font-size:12px;letter-spacing:0.24em;text-transform:uppercase;border-bottom:1px solid #c98a3d;align-self:flex-start;padding-bottom:3px">Ver ámbar y amaderados →</span>
+      </div>
+    </div>
+    <div onClick="{{ goAccs }}" style="position:relative;min-height:380px;overflow:hidden;cursor:pointer;background:#c98a3d;color:#131313;display:flex;flex-direction:column;justify-content:space-between;padding:30px">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <span style="font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:0.4em;text-transform:uppercase">Kit del caballero</span>
+        <span style="font-family:'Oswald',sans-serif;font-size:56px;font-weight:600;line-height:0.8">-20%</span>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <span style="font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:clamp(30px,3.4vw,48px);line-height:0.95">Reloj + lentes<br>+ billetera</span>
+        <span style="font-size:14px;line-height:1.6;max-width:360px;opacity:0.8">Los tres accesorios que cierran cualquier look, juntos con descuento. Ideal para regalar.</span>
+        <span style="font-family:'Oswald',sans-serif;font-size:12px;letter-spacing:0.24em;text-transform:uppercase;border-bottom:1px solid #131313;align-self:flex-start;padding-bottom:3px">Ver accesorios →</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROMESAS -->
+  <section style="max-width:1360px;margin:0 auto;padding:0 clamp(16px,4vw,40px) 70px;animation:fadeUp both;animation-timeline:view();animation-range:entry 0% entry 40%">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr));border-top:1px solid rgba(239,236,230,0.15);border-bottom:1px solid rgba(239,236,230,0.15)">
+      <sc-for list="{{ cabPromises }}" as="p" hint-placeholder-count="4">
+        <div style="padding:26px 18px;display:flex;flex-direction:column;gap:6px;border-right:1px solid rgba(239,236,230,0.1)">
+          <span style="font-family:'Oswald',sans-serif;font-size:22px;color:#c98a3d">{{ p.big }}</span>
+          <span style="font-size:12.5px;color:rgba(239,236,230,0.6);line-height:1.5">{{ p.t }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+</main>
+</sc-if>
+
+<!-- ============ INICIO NIÑOS ============ -->
+<sc-if value="{{ isHomeKid }}" hint-placeholder-val="{{ false }}">
+<main style="background:#fff6e8;color:#2d2440;font-family:'Fredoka',sans-serif;overflow:hidden">
+  <section style="max-width:1360px;margin:0 auto;padding:clamp(36px,5vw,70px) clamp(16px,4vw,40px);display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(24px,4vw,56px);align-items:center">
+    <div style="display:flex;flex-direction:column;gap:20px;animation:fadeUp 0.8s ease both">
+      <span style="display:inline-flex;align-self:flex-start;background:#ffd23f;color:#2d2440;padding:8px 18px;border-radius:99px;font-size:13px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;transform:rotate(-2deg)">Mundo Niños</span>
+      <h1 style="margin:0;font-weight:700;font-size:clamp(42px,5.6vw,84px);line-height:1.02">Pequeños con <span style="color:#ff5d5d">mucho</span> <span style="color:#26b5a4">estilo</span></h1>
+      <p style="margin:0;font-size:16.5px;line-height:1.65;color:rgba(45,36,64,0.7);max-width:400px">Colonias suavecitas, ropa que aguanta el recreo y todo para que los peques estrenen felices.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <a href="#" onClick="{{ goPerfumes }}" style="background:#ff5d5d;color:#fff;padding:16px 32px;border-radius:99px;font-size:15px;font-weight:600;cursor:pointer;box-shadow:0 8px 0 rgba(45,36,64,0.15);transition:transform 0.2s, box-shadow 0.2s" style-hover="transform:translateY(3px);box-shadow:0 4px 0 rgba(45,36,64,0.15)">Ver colonias</a>
+        <a href="#" onClick="{{ goRopa }}" style="background:#26b5a4;color:#fff;padding:16px 32px;border-radius:99px;font-size:15px;font-weight:600;cursor:pointer;box-shadow:0 8px 0 rgba(45,36,64,0.15);transition:transform 0.2s, box-shadow 0.2s" style-hover="transform:translateY(3px);box-shadow:0 4px 0 rgba(45,36,64,0.15)">Ver ropa</a>
+      </div>
+    </div>
+    <div style="position:relative;min-height:420px">
+      <div style="position:absolute;inset:8% 6%;background:#ffd23f;border-radius:48% 52% 55% 45% / 50% 46% 54% 50%;animation:floaty 7s ease-in-out infinite"></div>
+      <div style="position:absolute;inset:0;border-radius:38px;overflow:hidden;transform:rotate(-2deg);box-shadow:0 24px 60px rgba(45,36,64,0.18)"><image-slot id="hero-kid-v2" shape="rect" src="{{ kidHeroImg }}" placeholder="Foto niño con estilo"></image-slot></div>
+      <span style="position:absolute;top:-6px;right:2%;background:#26b5a4;color:#fff;padding:10px 20px;border-radius:99px;font-weight:600;font-size:14px;transform:rotate(6deg);animation:wiggle 3.5s ease-in-out infinite">¡Nueva colección!</span>
+    </div>
+  </section>
+  <section style="background:#ff5d5d;padding:16px 0;overflow:hidden;transform:rotate(-1.2deg) scale(1.02)">
+    <div style="display:flex;gap:44px;white-space:nowrap;animation:marquee 22s linear infinite;font-weight:600;font-size:17px;color:#fff;text-transform:uppercase;letter-spacing:0.1em">
+      <sc-for list="{{ kidMarquee }}" as="m" hint-placeholder-count="8"><span>{{ m.t }}</span></sc-for>
+    </div>
+  </section>
+  <section style="max-width:1360px;margin:0 auto;padding:70px clamp(16px,4vw,40px) 30px">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:24px;margin-bottom:36px;flex-wrap:wrap">
+      <h2 style="margin:0;font-weight:700;font-size:clamp(26px,3.4vw,40px)">Colonias suavecitas</h2>
+      <a href="#" onClick="{{ goPerfumes }}" style="color:#ff5d5d;font-weight:600;font-size:15px;cursor:pointer;border-bottom:2px solid #ff5d5d;padding-bottom:2px">Ver todas →</a>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px">
+      <sc-for list="{{ featured }}" as="p" hint-placeholder-count="4">
+        <div style="background:#fff;border-radius:26px;padding:16px;display:flex;flex-direction:column;gap:12px;border:3px solid transparent;transition:transform 0.25s, border-color 0.25s" style-hover="transform:translateY(-6px) rotate(-1deg);border-color:#ffd23f">
+          <div style="aspect-ratio:1/1;border-radius:18px;overflow:hidden;position:relative;cursor:pointer;background:#fff6e8" onClick="{{ p.open }}">
+            <image-slot id="prod-{{ p.slug }}" shape="rect" src="{{ p.img }}" credit="{{ p.credit }}" credit-href="{{ p.chref }}" placeholder="Foto: {{ p.brand }} {{ p.name }}"></image-slot>
+            <span style="position:absolute;top:10px;left:10px;background:#ffd23f;color:#2d2440;font-size:11.5px;font-weight:600;padding:5px 12px;border-radius:99px;transform:rotate(-3deg);pointer-events:none">{{ p.badge }}</span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:2px;padding:0 6px 6px">
+            <span style="font-size:12px;font-weight:600;color:#26b5a4;text-transform:uppercase;letter-spacing:0.08em">{{ p.brand }}</span>
+            <a href="#" onClick="{{ p.open }}" style="font-size:19px;font-weight:600;color:#2d2440;cursor:pointer">{{ p.name }}</a>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px;gap:8px">
+              <span style="font-size:15px;font-weight:700">{{ p.priceLabel }}</span>
+              <button onClick="{{ p.add }}" style="border:none;background:#2d2440;color:#fff;padding:9px 18px;border-radius:99px;font-family:'Fredoka',sans-serif;font-size:13px;font-weight:600;cursor:pointer" style-hover="background:#ff5d5d">Añadir</button>
+            </div>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+  <section style="max-width:1360px;margin:0 auto;padding:50px clamp(16px,4vw,40px) 80px">
+    <div style="background:#26b5a4;border-radius:38px;padding:clamp(28px,4vw,56px);display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:32px;align-items:center;color:#fff">
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <h2 style="margin:0;font-weight:700;font-size:clamp(26px,3.4vw,40px)">La ropa del recreo</h2>
+        <p style="margin:0;font-size:15.5px;line-height:1.6;color:rgba(255,255,255,0.85);max-width:380px">Camisetas street, conjuntos y jeans que aguantan todo — y quedan geniales en la foto.</p>
+        <a href="#" onClick="{{ goRopa }}" style="align-self:flex-start;background:#fff;color:#26b5a4;padding:14px 30px;border-radius:99px;font-weight:600;font-size:15px;cursor:pointer" style-hover="background:#ffd23f;color:#2d2440">Ver toda la ropa →</a>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+        <sc-for list="{{ kidRopaHome }}" as="r" hint-placeholder-count="2">
+          <div onClick="{{ r.open }}" style="border-radius:20px;overflow:hidden;aspect-ratio:3/4;cursor:pointer;transform:rotate({{ r.tilt }});transition:transform 0.25s" style-hover="transform:rotate(0deg) scale(1.03)"><image-slot id="home-{{ r.slug }}" shape="rect" src="{{ r.img }}" placeholder="Foto: {{ r.name }}"></image-slot></div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROMO TEMPORADA -->
+  <section style="max-width:1360px;margin:0 auto;padding:0 clamp(16px,4vw,40px) 60px;animation:fadeUp both;animation-timeline:view();animation-range:entry 0% entry 40%">
+    <div onClick="{{ goRopa }}" style="position:relative;background:#ff5d5d;border-radius:38px;padding:clamp(28px,4vw,52px);display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;align-items:center;color:#fff;cursor:pointer;overflow:hidden">
+      <div style="position:absolute;right:-60px;top:-60px;width:260px;height:260px;border-radius:99px;background:#ffd23f;opacity:0.9;animation:floaty 8s ease-in-out infinite"></div>
+      <div style="display:flex;flex-direction:column;gap:12px;position:relative">
+        <span style="align-self:flex-start;background:#fff;color:#ff5d5d;padding:7px 16px;border-radius:99px;font-size:12.5px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;transform:rotate(-2deg)">Vuelta al cole</span>
+        <span style="font-weight:700;font-size:clamp(34px,4.4vw,62px);line-height:1">3 camisetas por <span style="color:#ffd23f">$30</span></span>
+        <span style="font-size:15.5px;line-height:1.6;max-width:400px;color:rgba(255,255,255,0.9)">Mezcla los colores que quieras. Aguantan lavadas, recreos y goles. Válido hasta el 30.</span>
+        <span style="align-self:flex-start;background:#2d2440;color:#fff;padding:14px 28px;border-radius:99px;font-weight:600;font-size:15px;box-shadow:0 6px 0 rgba(0,0,0,0.15)">Armar mi pack →</span>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;position:relative">
+        <sc-for list="{{ kidPromoTees }}" as="r" hint-placeholder-count="3">
+          <div style="aspect-ratio:3/4;border-radius:18px;overflow:hidden;transform:rotate({{ r.tilt }});box-shadow:0 14px 30px rgba(45,36,64,0.2)"><image-slot id="kidpromo-{{ r.slug }}" shape="rect" src="{{ r.img }}" credit="{{ r.credit }}" credit-href="{{ r.chref }}" placeholder="{{ r.name }}"></image-slot></div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- MÁS VENDIDOS -->
+  <section style="max-width:1360px;margin:0 auto;padding:0 clamp(16px,4vw,40px) 60px;animation:fadeUp both;animation-timeline:view();animation-range:entry 0% entry 40%">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:24px;margin-bottom:28px;flex-wrap:wrap">
+      <h2 style="margin:0;font-weight:700;font-size:clamp(26px,3.4vw,40px)">Los favoritos de los peques</h2>
+      <span style="font-size:14px;font-weight:600;color:#26b5a4">★ Lo más vendido este mes</span>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr));gap:18px">
+      <sc-for list="{{ kidBest }}" as="p" hint-placeholder-count="4">
+        <div onClick="{{ p.open }}" style="background:#fff;border-radius:26px;padding:14px;display:flex;flex-direction:column;gap:10px;cursor:pointer;border:3px solid transparent;transition:transform 0.25s, border-color 0.25s" style-hover="transform:translateY(-6px) rotate(1deg);border-color:#26b5a4">
+          <div style="aspect-ratio:1/1;border-radius:18px;overflow:hidden;position:relative;background:#fff6e8">
+            <image-slot id="kidbest-{{ p.slug }}" shape="rect" src="{{ p.img }}" credit="{{ p.credit }}" credit-href="{{ p.chref }}" placeholder="{{ p.name }}"></image-slot>
+            <span style="position:absolute;top:10px;left:10px;width:34px;height:34px;border-radius:99px;background:{{ p.rankBg }};color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;transform:rotate(-6deg)">{{ p.rank }}</span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:2px;padding:0 4px 4px">
+            <span style="font-size:11.5px;font-weight:600;color:#26b5a4;text-transform:uppercase;letter-spacing:0.08em">{{ p.cat }}</span>
+            <span style="font-size:17px;font-weight:600">{{ p.name }}</span>
+            <span style="font-size:14px;font-weight:700;margin-top:4px">{{ p.priceLabel }}</span>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- RECIÉN LLEGADOS + BANNER -->
+  <section style="max-width:1360px;margin:0 auto;padding:0 clamp(16px,4vw,40px) 60px;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;animation:fadeUp both;animation-timeline:view();animation-range:entry 0% entry 40%">
+    <div onClick="{{ goPerfumes }}" style="background:#ffd23f;border-radius:38px;padding:clamp(26px,3.5vw,44px);display:flex;flex-direction:column;justify-content:space-between;gap:18px;cursor:pointer;min-height:340px;position:relative;overflow:hidden">
+      <span style="position:absolute;right:24px;top:20px;background:#2d2440;color:#fff;padding:8px 16px;border-radius:99px;font-weight:600;font-size:13px;transform:rotate(6deg);animation:wiggle 3.5s ease-in-out infinite">¡Recién llegó!</span>
+      <div style="display:flex;flex-direction:column;gap:10px;max-width:360px">
+        <span style="font-size:12.5px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#ff5d5d">Nuevo en colonias</span>
+        <span style="font-weight:700;font-size:clamp(28px,3.2vw,44px);line-height:1.02">Body Mist Frutal Kids</span>
+        <span style="font-size:15px;line-height:1.55;color:rgba(45,36,64,0.75)">Fresa, mandarina y coco. Nuestra mezcla propia para el cole, sin alcohol agresivo.</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:14px">
+        <span style="background:#2d2440;color:#fff;padding:13px 24px;border-radius:99px;font-weight:600;font-size:14.5px">Verlo →</span>
+        <div style="width:120px;aspect-ratio:4/5;border-radius:18px;overflow:hidden;transform:rotate(3deg);box-shadow:0 14px 30px rgba(45,36,64,0.2)"><image-slot id="kid-new-mist" shape="rect" src="{{ kidMistImg }}" placeholder="Body Mist"></image-slot></div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <span style="font-weight:700;font-size:clamp(22px,2.4vw,28px);padding:0 6px">Recién llegados</span>
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px">
+        <sc-for list="{{ kidNew }}" as="r" hint-placeholder-count="4">
+          <div onClick="{{ r.open }}" style="display:flex;flex-direction:column;gap:8px;cursor:pointer">
+            <div style="aspect-ratio:1/1;border-radius:20px;overflow:hidden;position:relative;background:#fff"><image-slot id="kidnew-{{ r.slug }}" shape="rect" src="{{ r.img }}" credit="{{ r.credit }}" credit-href="{{ r.chref }}" placeholder="{{ r.name }}"></image-slot></div>
+            <div style="display:flex;justify-content:space-between;gap:8px;padding:0 6px"><span style="font-size:14px;font-weight:600">{{ r.name }}</span><span style="font-size:14px;font-weight:700;white-space:nowrap">{{ r.priceLabel }}</span></div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROMESAS -->
+  <section style="max-width:1360px;margin:0 auto;padding:0 clamp(16px,4vw,40px) 80px;animation:fadeUp both;animation-timeline:view();animation-range:entry 0% entry 40%">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr));gap:14px">
+      <sc-for list="{{ kidPromises }}" as="p" hint-placeholder-count="4">
+        <div style="background:{{ p.bg }};color:{{ p.fg }};border-radius:26px;padding:24px 22px;display:flex;flex-direction:column;gap:6px;transform:rotate({{ p.tilt }})">
+          <span style="font-weight:700;font-size:26px;line-height:1">{{ p.big }}</span>
+          <span style="font-size:13.5px;line-height:1.5;opacity:0.85">{{ p.t }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+</main>
+</sc-if>
+
+<!-- ============ INICIO DAMA ============ -->
+<sc-if value="{{ isHomeDama }}" hint-placeholder-val="{{ false }}">
+<main>
+  <section style="position:relative;height:86vh;min-height:540px">
+    <div style="position:absolute;inset:0"><image-slot id="hero-{{ worldKey }}" shape="rect" src="{{ heroImg }}" credit="{{ heroCredit }}" credit-href="{{ heroHref }}" placeholder="Imagen hero — mundo {{ worldLabel }}"></image-slot></div>
+    <div style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:0 clamp(16px,4vw,40px) 60px;pointer-events:none;background:linear-gradient(to top, rgba(36,31,33,0.45) 0%, rgba(36,31,33,0) 45%)">
+      <div style="max-width:1360px;margin:0 auto;width:100%;display:flex;flex-direction:column;gap:16px;animation:fadeUp 0.9s ease both">
+        <div style="color:#f6f1ee;font-size:12px;letter-spacing:0.28em;text-transform:uppercase">{{ heroKicker }}</div>
+        <h1 style="margin:0;font-family:'Marcellus',serif;font-weight:400;color:#f6f1ee;font-size:clamp(40px,6.5vw,88px);line-height:1.02;max-width:11em">{{ heroTitle }}</h1>
+        <div style="display:flex;gap:12px;margin-top:6px;flex-wrap:wrap">
+          <a href="#" onClick="{{ heroCta }}" style="pointer-events:auto;background:#f6f1ee;color:#241f21;padding:15px 32px;font-size:12.5px;letter-spacing:0.16em;text-transform:uppercase;cursor:pointer" style-hover="background:#b3121b;color:#f6f1ee">{{ heroCtaLabel }}</a>
+          <a href="#" onClick="{{ goQuiz }}" style="pointer-events:auto;border:1px solid #f6f1ee;color:#f6f1ee;padding:15px 32px;font-size:12.5px;letter-spacing:0.16em;text-transform:uppercase;cursor:pointer" style-hover="background:#f6f1ee;color:#241f21">Encuentra el tuyo →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <sc-if value="{{ showPerfHome }}" hint-placeholder-val="{{ true }}">
+  <section style="overflow:hidden;border-bottom:1px solid rgba(36,31,33,0.12);padding:20px 0;background:#f6f1ee">
+    <div style="display:flex;gap:56px;white-space:nowrap;animation:marquee 30s linear infinite;font-family:'Marcellus',serif;font-size:15px;letter-spacing:0.22em;text-transform:uppercase;color:rgba(36,31,33,0.6)">
+      <sc-for list="{{ marqueeItems }}" as="m" hint-placeholder-count="8"><span>{{ m.t }}</span></sc-for>
+    </div>
+  </section>
+
+  </sc-if>
+
+  <section style="max-width:1360px;margin:0 auto;padding:90px clamp(16px,4vw,40px) 40px;animation:fadeUp both;animation-timeline:view();animation-range:entry 0% entry 45%">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:24px;margin-bottom:40px;flex-wrap:wrap">
+      <h2 style="margin:0;font-family:'Marcellus',serif;font-weight:400;font-size:clamp(28px,3.4vw,38px)">{{ featuredTitle }}</h2>
+      <a href="#" onClick="{{ featuredCta }}" style="font-size:12.5px;letter-spacing:0.14em;text-transform:uppercase;border-bottom:1px solid #241f21;padding-bottom:3px;cursor:pointer">{{ featuredCtaLabel }}</a>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:26px">
+      <sc-for list="{{ featured }}" as="p" hint-placeholder-count="4">
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div style="aspect-ratio:4/5;background:#ebe3dd;position:relative;cursor:pointer" onClick="{{ p.open }}">
+            <image-slot id="prod-{{ p.slug }}" shape="rect" src="{{ p.img }}" credit="{{ p.credit }}" credit-href="{{ p.chref }}" placeholder="Foto: {{ p.brand }} {{ p.name }}"></image-slot>
+            <span style="position:absolute;top:12px;left:12px;background:#f6f1ee;font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;padding:5px 10px;pointer-events:none">{{ p.badge }}</span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:4px">
+            <span style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:#9e3450">{{ p.brand }}</span>
+            <a href="#" onClick="{{ p.open }}" style="font-family:'Marcellus',serif;font-size:20px;cursor:pointer">{{ p.name }}</a>
+            <span style="font-size:13px;color:rgba(36,31,33,0.6)">{{ p.tagline }}</span>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px;gap:8px">
+              <span style="font-size:13.5px;font-weight:600">{{ p.priceLabel }}</span>
+              <button onClick="{{ p.quick }}" style="border:1px solid rgba(36,31,33,0.35);background:transparent;padding:7px 14px;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;font-family:'Figtree',sans-serif" style-hover="background:#241f21;color:#f6f1ee;border-color:#241f21">Vista rápida</button>
+            </div>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <sc-if value="{{ showRopaHome }}" hint-placeholder-val="{{ false }}">
+  <section style="max-width:1360px;margin:0 auto;padding:20px clamp(16px,4vw,40px) 60px">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:24px;margin-bottom:40px;flex-wrap:wrap">
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <span style="font-size:12px;letter-spacing:0.28em;text-transform:uppercase;color:#b3121b">Ya disponible</span>
+        <h2 style="margin:0;font-family:'Marcellus',serif;font-weight:400;font-size:clamp(28px,3.4vw,38px)">{{ ropaHomeTitle }}</h2>
+      </div>
+      <a href="#" onClick="{{ goRopa }}" style="font-size:12.5px;letter-spacing:0.14em;text-transform:uppercase;border-bottom:1px solid #241f21;padding-bottom:3px;cursor:pointer">Ver toda la ropa</a>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:26px">
+      <sc-for list="{{ ropaHome }}" as="r" hint-placeholder-count="4">
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div style="aspect-ratio:3/4;background:#ebe3dd;cursor:pointer" onClick="{{ r.open }}"><image-slot id="home-{{ r.slug }}" shape="rect" src="{{ r.img }}" placeholder="Foto: {{ r.name }}"></image-slot></div>
+          <div style="display:flex;flex-direction:column;gap:4px">
+            <span style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:#b3121b">{{ r.cat }}</span>
+            <a href="#" onClick="{{ r.open }}" style="font-family:'Marcellus',serif;font-size:20px;cursor:pointer">{{ r.name }}</a>
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:8px">
+              <span style="font-size:13.5px;font-weight:600">{{ r.priceLabel }}</span>
+              <button onClick="{{ r.add }}" style="border:none;background:#b3121b;color:#f6f1ee;padding:7px 14px;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;font-family:'Figtree',sans-serif" style-hover="background:#241f21">Añadir</button>
+            </div>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+  </sc-if>
+
+  <sc-if value="{{ showPerfHome }}" hint-placeholder-val="{{ true }}">
+  <section style="max-width:1360px;margin:0 auto;padding:60px clamp(16px,4vw,40px)">
+    <div style="background:#241f21;color:#f6f1ee;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));align-items:center;animation:fadeUp both;animation-timeline:view();animation-range:entry 0% entry 45%">
+      <div style="padding:clamp(32px,5vw,64px);display:flex;flex-direction:column;gap:18px">
+        <span style="font-size:12px;letter-spacing:0.28em;text-transform:uppercase;color:#d98ea4">Quiz · 30 segundos</span>
+        <h2 style="margin:0;font-family:'Marcellus',serif;font-weight:400;font-size:clamp(28px,3.6vw,42px);line-height:1.12">{{ quizBannerTitle }}</h2>
+        <p style="margin:0;font-size:15px;line-height:1.7;color:rgba(246,241,238,0.7);max-width:420px">{{ quizBannerText }}</p>
+        <a href="#" onClick="{{ goQuiz }}" style="background:#f6f1ee;color:#241f21;padding:15px 32px;font-size:12.5px;letter-spacing:0.16em;text-transform:uppercase;cursor:pointer;align-self:flex-start" style-hover="background:#9e3450;color:#f6f1ee">Empezar el quiz</a>
+      </div>
+      <div style="min-height:340px;height:100%;position:relative"><image-slot id="quiz-banner" shape="rect" src="{{ quizImg }}" placeholder="Imagen — flatlay de perfumes / tocador"></image-slot></div>
+    </div>
+  </section>
+
+  <section style="max-width:1360px;margin:0 auto;padding:60px clamp(16px,4vw,40px);animation:fadeUp both;animation-timeline:view();animation-range:entry 0% entry 45%">
+    <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:40px">
+      <span style="font-size:12px;letter-spacing:0.28em;text-transform:uppercase;color:#9e3450">Explora por familia olfativa</span>
+      <h2 style="margin:0;font-family:'Marcellus',serif;font-weight:400;font-size:clamp(28px,3.4vw,38px)">¿Cómo quieres oler hoy?</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px">
+      <sc-for list="{{ familyTiles }}" as="f" hint-placeholder-count="3">
+        <div onClick="{{ f.open }}" style="cursor:pointer;border:1px solid rgba(36,31,33,0.2);padding:28px 24px;display:flex;flex-direction:column;gap:12px;min-height:190px;justify-content:space-between" style-hover="background:#241f21;color:#f6f1ee;border-color:#241f21">
+          <span style="font-family:'Marcellus',serif;font-size:25px">{{ f.name }}</span>
+          <div style="display:flex;flex-direction:column;gap:6px">
+            <span style="font-size:13px;line-height:1.6;opacity:0.7">{{ f.desc }}</span>
+            <span style="font-size:11.5px;letter-spacing:0.16em;text-transform:uppercase;margin-top:6px;color:#9e3450">Ver {{ f.count }} →</span>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  </sc-if>
+
+  <section style="max-width:1360px;margin:0 auto;padding:80px clamp(16px,4vw,40px);display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:56px;align-items:center;animation:fadeUp both;animation-timeline:view();animation-range:entry 0% entry 45%">
+    <div style="aspect-ratio:4/5;background:#ebe3dd"><image-slot id="editorial-{{ worldKey }}" shape="rect" src="{{ editorialImg }}" credit="{{ editorialCredit }}" credit-href="{{ editorialHref }}" placeholder="Imagen editorial — mundo {{ worldLabel }}"></image-slot></div>
+    <div style="display:flex;flex-direction:column;gap:20px;max-width:460px">
+      <span style="font-size:12px;letter-spacing:0.28em;text-transform:uppercase;color:#9e3450">La casa</span>
+      <h2 style="margin:0;font-family:'Marcellus',serif;font-weight:400;font-size:clamp(28px,3.4vw,38px);line-height:1.15">{{ casaTitle }}</h2>
+      <p style="margin:0;font-size:15px;line-height:1.75;color:rgba(36,31,33,0.75)">{{ casaText }}</p>
+      <div style="border-top:1px solid rgba(36,31,33,0.15)">
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:15px 0;border-bottom:1px solid rgba(36,31,33,0.15)"><span style="font-family:'Marcellus',serif;font-size:18px">Perfumes</span><span style="font-size:11.5px;letter-spacing:0.14em;text-transform:uppercase;color:#9e3450">Disponible</span></div>
+        <div onClick="{{ goRopa }}" style="display:flex;justify-content:space-between;align-items:center;padding:15px 0;border-bottom:1px solid rgba(36,31,33,0.15);cursor:pointer"><span style="font-family:'Marcellus',serif;font-size:18px">Ropa</span><span style="font-size:11.5px;letter-spacing:0.14em;text-transform:uppercase;color:#9e3450">Disponible</span></div>
+        <div onClick="{{ goAccesorios }}" style="display:flex;justify-content:space-between;align-items:center;padding:15px 0;border-bottom:1px solid rgba(36,31,33,0.15);cursor:pointer"><span style="font-family:'Marcellus',serif;font-size:18px">Accesorios</span><span style="font-size:11.5px;letter-spacing:0.14em;text-transform:uppercase;color:#9e3450">Disponible</span></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:15px 0;border-bottom:1px solid rgba(36,31,33,0.15)"><span style="font-family:'Marcellus',serif;font-size:18px;color:rgba(36,31,33,0.4)">Calzado</span><span style="font-size:11.5px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(36,31,33,0.4)">Próximamente</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="max-width:760px;margin:0 auto;padding:40px clamp(16px,4vw,40px) 110px;text-align:center;display:flex;flex-direction:column;gap:18px;align-items:center">
+    <h2 style="margin:0;font-family:'Marcellus',serif;font-weight:400;font-size:32px">Entérate primero</h2>
+    <p style="margin:0;font-size:14.5px;color:rgba(36,31,33,0.65);max-width:420px">Nuevas llegadas, ofertas y el estreno de ropa y accesorios. Sin spam, lo prometemos.</p>
+    <div style="display:flex;width:100%;max-width:440px;border-bottom:1px solid #241f21">
+      <input placeholder="Tu correo" style="flex:1;border:none;background:transparent;padding:14px 4px;font-size:14px;font-family:'Figtree',sans-serif;outline:none;color:#241f21">
+      <button style="border:none;background:transparent;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;cursor:pointer;font-family:'Figtree',sans-serif;color:#9e3450">Suscribirme</button>
+    </div>
+  </section>
+</main>
+</sc-if>
+
+<!-- ============ CATÁLOGO PERFUMES ============ -->
+<sc-if value="{{ isPerfumes }}" hint-placeholder-val="{{ false }}">
+<main style="max-width:1360px;margin:0 auto;padding:56px clamp(16px,4vw,40px) 96px;animation:fadeUp 0.5s ease both">
+  <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:36px;max-width:640px">
+    <span style="font-size:12px;letter-spacing:0.28em;text-transform:uppercase;color:#9e3450">Perfumería</span>
+    <h1 style="margin:0;font-family:'Marcellus',serif;font-weight:400;font-size:clamp(36px,5vw,52px);line-height:1.05">{{ perfumeTitle }}</h1>
+    <p style="margin:0;font-size:15px;line-height:1.7;color:rgba(36,31,33,0.65)">{{ perfumeIntro }}</p>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:38px;border-top:1px solid rgba(36,31,33,0.12);border-bottom:1px solid rgba(36,31,33,0.12);padding:16px 0">
+    <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+      <span style="font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(36,31,33,0.5);min-width:70px">Marca</span>
+      <sc-for list="{{ brandFilters }}" as="b" hint-placeholder-count="5">
+        <button onClick="{{ b.select }}" style="border:1px solid {{ b.bd }};background:{{ b.bg }};color:{{ b.fg }};padding:8px 16px;border-radius:99px;font-size:12px;letter-spacing:0.06em;cursor:pointer;font-family:'Figtree',sans-serif">{{ b.name }}</button>
+      </sc-for>
+    </div>
+    <sc-if value="{{ priceChipOn }}" hint-placeholder-val="{{ false }}">
+    <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+      <span style="font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(36,31,33,0.5);min-width:70px">Precio</span>
+      <button onClick="{{ clearPrice }}" style="border:1px solid #b3121b;background:#b3121b;color:#f6f1ee;padding:8px 16px;border-radius:99px;font-size:12px;letter-spacing:0.06em;cursor:pointer;font-family:'Figtree',sans-serif">{{ priceChipLabel }} ✕</button>
+    </div>
+    </sc-if>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+      <span style="font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(36,31,33,0.5);min-width:70px">Familia</span>
+      <sc-for list="{{ familyFilters }}" as="f" hint-placeholder-count="4">
+        <button onClick="{{ f.select }}" style="border:1px solid {{ f.bd }};background:{{ f.bg }};color:{{ f.fg }};padding:8px 16px;border-radius:99px;font-size:12px;letter-spacing:0.06em;cursor:pointer;font-family:'Figtree',sans-serif">{{ f.name }}</button>
+      </sc-for>
+    </div>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:26px">
+    <sc-for list="{{ catalog }}" as="p" hint-placeholder-count="6">
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div style="aspect-ratio:4/5;background:#ebe3dd;position:relative;cursor:pointer" onClick="{{ p.open }}">
+          <image-slot id="prod-{{ p.slug }}" shape="rect" src="{{ p.img }}" credit="{{ p.credit }}" credit-href="{{ p.chref }}" placeholder="Foto: {{ p.brand }} {{ p.name }}"></image-slot>
+          <span style="position:absolute;top:12px;left:12px;background:#f6f1ee;font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;padding:5px 10px;pointer-events:none">{{ p.badge }}</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:4px">
+          <span style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:#9e3450">{{ p.brand }} · {{ p.family }}</span>
+          <a href="#" onClick="{{ p.open }}" style="font-family:'Marcellus',serif;font-size:20px;cursor:pointer">{{ p.name }}</a>
+          <span style="font-size:13px;color:rgba(36,31,33,0.6)">{{ p.tagline }}</span>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px;gap:8px;flex-wrap:wrap">
+            <span style="font-size:13.5px;font-weight:600">{{ p.priceLabel }}</span>
+            <div style="display:flex;gap:8px">
+              <button onClick="{{ p.quick }}" style="border:1px solid rgba(36,31,33,0.35);background:transparent;padding:7px 12px;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;font-family:'Figtree',sans-serif" style-hover="background:#241f21;color:#f6f1ee;border-color:#241f21">Vista rápida</button>
+              <button onClick="{{ p.add }}" style="border:none;background:#9e3450;color:#f6f1ee;padding:7px 14px;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;font-family:'Figtree',sans-serif" style-hover="background:#241f21">Añadir</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+</main>
+</sc-if>
+
+<!-- ============ FICHA DE PRODUCTO ============ -->
+<sc-if value="{{ isProduct }}" hint-placeholder-val="{{ false }}">
+<main style="max-width:1360px;margin:0 auto;padding:36px clamp(16px,4vw,40px) 96px;animation:fadeUp 0.5s ease both">
+  <a href="#" onClick="{{ prodBack }}" style="font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(36,31,33,0.55);cursor:pointer">{{ prodBackLabel }}</a>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:56px;margin-top:26px;align-items:start">
+    <div style="aspect-ratio:4/5;background:#ebe3dd;position:sticky;top:100px"><image-slot id="detail-{{ prod.slug }}" shape="rect" src="{{ prod.img }}" credit="{{ prod.credit }}" credit-href="{{ prod.chref }}" placeholder="Foto grande: {{ prod.brand }} {{ prod.name }}"></image-slot></div>
+    <div style="display:flex;flex-direction:column;gap:24px;max-width:480px">
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <span style="font-size:12px;letter-spacing:0.24em;text-transform:uppercase;color:#9e3450">{{ prod.brand }} · {{ prod.family }}</span>
+        <h1 style="margin:0;font-family:'Marcellus',serif;font-weight:400;font-size:clamp(34px,4.5vw,46px);line-height:1.05">{{ prod.name }}</h1>
+        <span style="font-size:15.5px;color:rgba(36,31,33,0.65)">{{ prod.tagline }}</span>
+      </div>
+      <div style="display:flex;gap:14px;align-items:baseline">
+        <span style="font-size:24px;font-weight:600">{{ prod.priceLabel }}</span>
+        <span style="font-size:13px;color:rgba(36,31,33,0.55)">{{ prod.presentation }}</span>
+      </div>
+      <p style="margin:0;font-size:15px;line-height:1.8;color:rgba(36,31,33,0.8)">{{ prod.story }}</p>
+      <sc-if value="{{ prodHasNotes }}" hint-placeholder-val="{{ true }}">
+      <div style="border-top:1px solid rgba(36,31,33,0.15)">
+        <div style="display:grid;grid-template-columns:110px 1fr;gap:12px;padding:13px 0;border-bottom:1px solid rgba(36,31,33,0.15);font-size:14px"><span style="letter-spacing:0.12em;text-transform:uppercase;font-size:11.5px;color:rgba(36,31,33,0.55);padding-top:2px">Salida</span><span>{{ prod.top }}</span></div>
+        <div style="display:grid;grid-template-columns:110px 1fr;gap:12px;padding:13px 0;border-bottom:1px solid rgba(36,31,33,0.15);font-size:14px"><span style="letter-spacing:0.12em;text-transform:uppercase;font-size:11.5px;color:rgba(36,31,33,0.55);padding-top:2px">Corazón</span><span>{{ prod.heart }}</span></div>
+        <div style="display:grid;grid-template-columns:110px 1fr;gap:12px;padding:13px 0;border-bottom:1px solid rgba(36,31,33,0.15);font-size:14px"><span style="letter-spacing:0.12em;text-transform:uppercase;font-size:11.5px;color:rgba(36,31,33,0.55);padding-top:2px">Fondo</span><span>{{ prod.base }}</span></div>
+      </div>
+      </sc-if>
+      <div style="border:1px solid rgba(36,31,33,0.15);padding:16px 18px;display:flex;flex-direction:column;gap:12px;background:#fdfbf9">
+        <div style="display:flex;align-items:center;gap:10px">
+          <span style="width:9px;height:9px;border-radius:99px;background:{{ prodAvailColor }};flex:none"></span>
+          <span style="font-size:13.5px;font-weight:600">{{ prodAvailText }}</span>
+        </div>
+        <sc-if value="{{ prodOutHere }}" hint-placeholder-val="{{ false }}">
+          <span style="font-size:12.5px;color:rgba(36,31,33,0.65);line-height:1.5">Disponible en otras sucursales. Puedes pedirlo desde ellas: el envío puede tardar algunos días y tener un costo adicional.</span>
+          <div style="display:flex;flex-direction:column;gap:6px">
+            <sc-for list="{{ prodOtherBranches }}" as="b" hint-placeholder-count="0">
+              <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 12px;border:1px solid rgba(36,31,33,0.12);background:#f6f1ee;flex-wrap:wrap">
+                <div style="display:flex;flex-direction:column;gap:1px">
+                  <span style="font-size:13.5px;font-weight:600">{{ b.name }}</span>
+                  <span style="font-size:12px;color:rgba(36,31,33,0.55)">{{ b.addr }} · {{ b.eta }} · {{ b.feeLabel }}</span>
+                </div>
+                <div style="display:flex;gap:8px">
+                  <button onClick="{{ b.switchTo }}" style="border:1px solid rgba(36,31,33,0.3);background:transparent;padding:7px 12px;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;font-family:'Figtree',sans-serif" style-hover="background:#241f21;color:#f6f1ee">Cambiar sucursal</button>
+                  <button onClick="{{ b.orderFrom }}" style="border:none;background:#b3121b;color:#f6f1ee;padding:7px 12px;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;font-family:'Figtree',sans-serif" style-hover="background:#241f21">Pedir desde aquí</button>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+        </sc-if>
+      </div>
+      <sc-if value="{{ prodInStockHere }}" hint-placeholder-val="{{ true }}">
+      <button onClick="{{ addCurrent }}" style="border:none;background:#9e3450;color:#f6f1ee;padding:18px 30px;font-size:13px;letter-spacing:0.16em;text-transform:uppercase;cursor:pointer;font-family:'Figtree',sans-serif" style-hover="background:#241f21">Añadir a la bolsa — {{ prod.priceLabel }}</button>
+      </sc-if>
+      <div style="display:flex;gap:20px;font-size:12px;color:rgba(36,31,33,0.55);flex-wrap:wrap">
+        <span>✓ 100% original</span><span>✓ Envío 24–72 h</span><span>✓ Pago móvil, Zelle o tarjeta</span>
+      </div>
+    </div>
+  </div>
+
+  <section style="margin-top:72px;border-top:1px solid rgba(36,31,33,0.15);padding-top:40px">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:24px;flex-wrap:wrap">
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <span style="font-size:12px;letter-spacing:0.28em;text-transform:uppercase;color:#b3121b">Recursos para revendedores</span>
+        <h2 style="margin:0;font-family:'Marcellus',serif;font-weight:400;font-size:clamp(24px,3vw,34px)">Material de {{ prod.name }} para tus redes</h2>
+      </div>
+      <span style="font-size:13px;color:rgba(36,31,33,0.55);max-width:380px;line-height:1.5">Fotos en alta y video listos para publicar. Uso permitido para clientes compradores de Mujer Bonita.</span>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:16px">
+      <sc-for list="{{ prodResources }}" as="r" hint-placeholder-count="0">
+        <div style="background:#fdfbf9;border:1px solid rgba(36,31,33,0.12);display:flex;flex-direction:column">
+          <div style="aspect-ratio:4/5;background:#ebe3dd;overflow:hidden;position:relative">
+            <div style="position:absolute;inset:0"><image-slot id="res-{{ r.file }}" shape="rect" src="{{ r.src }}" placeholder="{{ r.label }}"></image-slot></div>
+          </div>
+          <div style="padding:14px 16px;display:flex;justify-content:space-between;align-items:center;gap:10px">
+            <div style="display:flex;flex-direction:column;gap:2px"><span style="font-size:13.5px;font-weight:600">{{ r.label }}</span><span style="font-size:11.5px;color:rgba(36,31,33,0.55)">{{ r.meta }}</span></div>
+            <a href="{{ r.src }}" download="{{ r.file }}" style="border:1px solid #241f21;padding:8px 14px;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;white-space:nowrap" style-hover="background:#241f21;color:#f6f1ee">Descargar</a>
+          </div>
+        </div>
+      </sc-for>
+      <div style="background:#241f21;color:#f6f1ee;display:flex;flex-direction:column">
+        <div style="aspect-ratio:4/5;background:#000;position:relative;overflow:hidden">
+          <sc-if value="{{ videoReady }}" hint-placeholder-val="{{ false }}">
+            <div style="position:absolute;inset:0">{{ videoEl }}</div>
+          </sc-if>
+          <sc-if value="{{ videoPending }}" hint-placeholder-val="{{ true }}">
+            <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-align:center;padding:24px">
+              <span style="font-family:'Marcellus',serif;font-size:20px">Preparando video…</span>
+              <span style="font-size:12px;opacity:0.6">{{ videoStatus }}</span>
+            </div>
+          </sc-if>
+        </div>
+        <div style="padding:14px 16px;display:flex;justify-content:space-between;align-items:center;gap:10px">
+          <div style="display:flex;flex-direction:column;gap:2px"><span style="font-size:13.5px;font-weight:600">Video · {{ prod.name }}</span><span style="font-size:11.5px;opacity:0.6">Reel 4:5 · 6 s · WebM</span></div>
+          <sc-if value="{{ videoReady }}" hint-placeholder-val="{{ false }}">
+            <a href="{{ videoSrc }}" download="{{ videoFile }}" style="border:1px solid #f6f1ee;color:#f6f1ee;padding:8px 14px;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;white-space:nowrap" style-hover="background:#f6f1ee;color:#241f21">Descargar</a>
+          </sc-if>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+</sc-if>
+
+<!-- ============ QUIZ ============ -->
+<sc-if value="{{ isQuiz }}" hint-placeholder-val="{{ false }}">
+<main style="max-width:820px;margin:0 auto;padding:64px clamp(16px,4vw,40px) 110px;animation:fadeUp 0.5s ease both">
+  <div style="text-align:center;display:flex;flex-direction:column;gap:12px;margin-bottom:44px">
+    <span style="font-size:12px;letter-spacing:0.28em;text-transform:uppercase;color:#9e3450">Quiz · {{ quizProgress }}</span>
+    <h1 style="margin:0;font-family:'Marcellus',serif;font-weight:400;font-size:clamp(32px,4.5vw,44px);line-height:1.1">{{ quizTitle }}</h1>
+  </div>
+  <sc-if value="{{ quizActive }}" hint-placeholder-val="{{ true }}">
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px">
+    <sc-for list="{{ quizOptions }}" as="o" hint-placeholder-count="3">
+      <button onClick="{{ o.pick }}" style="border:1px solid rgba(36,31,33,0.25);background:#fdfbf9;padding:32px 22px;cursor:pointer;font-family:'Figtree',sans-serif;display:flex;flex-direction:column;gap:8px;text-align:left" style-hover="border-color:#9e3450;background:#faf3f1">
+        <span style="font-family:'Marcellus',serif;font-size:21px;color:#241f21">{{ o.label }}</span>
+        <span style="font-size:13px;color:rgba(36,31,33,0.6);line-height:1.5">{{ o.hint }}</span>
+      </button>
+    </sc-for>
+  </div>
+  </sc-if>
+  <sc-if value="{{ quizDone }}" hint-placeholder-val="{{ false }}">
+  <div style="display:flex;flex-direction:column;gap:28px;align-items:center">
+    <div style="background:#fdfbf9;border:1px solid rgba(36,31,33,0.15);padding:clamp(24px,4vw,44px);display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:32px;align-items:center;width:100%;animation:popIn 0.4s ease both">
+      <div style="aspect-ratio:4/5;background:#ebe3dd"><image-slot id="prod-{{ quizResult.slug }}" shape="rect" src="{{ quizResult.img }}" credit="{{ quizResult.credit }}" credit-href="{{ quizResult.chref }}" placeholder="Foto: {{ quizResult.brand }} {{ quizResult.name }}"></image-slot></div>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <span style="font-size:11.5px;letter-spacing:0.2em;text-transform:uppercase;color:#9e3450">Tu match perfecto</span>
+        <span style="font-family:'Marcellus',serif;font-size:32px;line-height:1.1">{{ quizResult.brand }} — {{ quizResult.name }}</span>
+        <span style="font-size:14.5px;color:rgba(36,31,33,0.65);line-height:1.6">{{ quizResult.tagline }}. {{ quizReason }}</span>
+        <span style="font-size:18px;font-weight:600">{{ quizResult.priceLabel }}</span>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <button onClick="{{ quizResult.add }}" style="border:none;background:#9e3450;color:#f6f1ee;padding:14px 26px;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;cursor:pointer;font-family:'Figtree',sans-serif" style-hover="background:#241f21">Añadir a la bolsa</button>
+          <button onClick="{{ quizResult.openBtn }}" style="border:1px solid #241f21;background:transparent;padding:14px 26px;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;cursor:pointer;font-family:'Figtree',sans-serif" style-hover="background:#241f21;color:#f6f1ee">Ver ficha</button>
+        </div>
+      </div>
+    </div>
+    <a href="#" onClick="{{ quizRestart }}" style="font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(36,31,33,0.55);border-bottom:1px solid rgba(36,31,33,0.35);padding-bottom:3px;cursor:pointer">Repetir el quiz</a>
+  </div>
+  </sc-if>
+</main>
+</sc-if>
+
+<!-- ============ ROPA ============ -->
+<sc-if value="{{ isRopa }}" hint-placeholder-val="{{ false }}">
+<main style="animation:fadeUp 0.5s ease both">
+  <section style="position:relative;height:300px">
+    <div style="position:absolute;inset:0"><image-slot id="ropa-banner-{{ worldKey }}" shape="rect" src="{{ ropaBannerImg }}" placeholder="Banner ropa {{ worldLabel }}"></image-slot></div>
+    <div style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:0 clamp(16px,4vw,40px) 36px;pointer-events:none;background:linear-gradient(to top, rgba(36,31,33,0.5) 0%, rgba(36,31,33,0) 60%)">
+      <div style="max-width:1360px;margin:0 auto;width:100%;display:flex;flex-direction:column;gap:6px">
+        <span style="color:#f6f1ee;font-size:12px;letter-spacing:0.28em;text-transform:uppercase">Departamento</span>
+        <h1 style="margin:0;font-family:'Marcellus',serif;font-weight:400;color:#f6f1ee;font-size:clamp(36px,5vw,54px)">{{ ropaTitle }}</h1>
+      </div>
+    </div>
+  </section>
+  <div style="max-width:1360px;margin:0 auto;padding:36px clamp(16px,4vw,40px) 96px">
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:34px;border-bottom:1px solid rgba(36,31,33,0.12);padding-bottom:16px">
+      <sc-for list="{{ ropaFilters }}" as="f" hint-placeholder-count="5">
+        <button onClick="{{ f.select }}" style="border:1px solid {{ f.bd }};background:{{ f.bg }};color:{{ f.fg }};padding:8px 16px;border-radius:99px;font-size:12px;letter-spacing:0.06em;cursor:pointer;font-family:'Figtree',sans-serif">{{ f.name }}</button>
+      </sc-for>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:26px">
+      <sc-for list="{{ ropaList }}" as="r" hint-placeholder-count="6">
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div style="aspect-ratio:4/5;background:#ebe3dd;cursor:pointer" onClick="{{ r.open }}"><image-slot id="prod-{{ r.slug }}" shape="rect" src="{{ r.img }}" credit="{{ r.credit }}" credit-href="{{ r.chref }}" placeholder="Foto: {{ r.name }}"></image-slot></div>
+          <div style="display:flex;flex-direction:column;gap:4px">
+            <span style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:#9e3450">{{ r.cat }}</span>
+            <a href="#" onClick="{{ r.open }}" style="font-family:'Marcellus',serif;font-size:20px;cursor:pointer">{{ r.name }}</a>
+            <span style="font-size:13px;color:rgba(36,31,33,0.6)">{{ r.tagline }}</span>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px;gap:8px;flex-wrap:wrap">
+              <span style="font-size:13.5px;font-weight:600">{{ r.priceLabel }}</span>
+              <div style="display:flex;gap:8px">
+                <button onClick="{{ r.quick }}" style="border:1px solid rgba(36,31,33,0.35);background:transparent;padding:7px 12px;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;font-family:'Figtree',sans-serif" style-hover="background:#241f21;color:#f6f1ee;border-color:#241f21">Vista rápida</button>
+                <button onClick="{{ r.add }}" style="border:none;background:#9e3450;color:#f6f1ee;padding:7px 14px;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;font-family:'Figtree',sans-serif" style-hover="background:#241f21">Añadir</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</main>
+</sc-if>
+
+<!-- ============ ACCESORIOS ============ -->
+<sc-if value="{{ isAccesorios }}" hint-placeholder-val="{{ false }}">
+<main style="animation:fadeUp 0.5s ease both">
+  <section style="position:relative;height:300px">
+    <div style="position:absolute;inset:0"><image-slot id="acc-banner-{{ worldKey }}" shape="rect" src="{{ accBannerImg }}" credit="{{ accBannerCredit }}" credit-href="{{ accBannerHref }}" placeholder="Banner accesorios {{ worldLabel }}"></image-slot></div>
+    <div style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:0 clamp(16px,4vw,40px) 36px;pointer-events:none;background:linear-gradient(to top, rgba(36,31,33,0.5) 0%, rgba(36,31,33,0) 60%)">
+      <div style="max-width:1360px;margin:0 auto;width:100%;display:flex;flex-direction:column;gap:6px">
+        <span style="color:#f6f1ee;font-size:12px;letter-spacing:0.28em;text-transform:uppercase">Departamento</span>
+        <h1 style="margin:0;font-family:'Marcellus',serif;font-weight:400;color:#f6f1ee;font-size:clamp(36px,5vw,54px)">Accesorios · {{ worldLabel }}</h1>
+      </div>
+    </div>
+  </section>
+  <div style="max-width:1360px;margin:0 auto;padding:36px clamp(16px,4vw,40px) 96px">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:26px">
+      <sc-for list="{{ accList }}" as="r" hint-placeholder-count="6">
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div style="aspect-ratio:4/5;background:#ebe3dd;cursor:pointer" onClick="{{ r.open }}"><image-slot id="prod-{{ r.slug }}" shape="rect" src="{{ r.img }}" credit="{{ r.credit }}" credit-href="{{ r.chref }}" placeholder="Foto: {{ r.name }}"></image-slot></div>
+          <div style="display:flex;flex-direction:column;gap:4px">
+            <span style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:#9e3450">{{ r.cat }}</span>
+            <a href="#" onClick="{{ r.open }}" style="font-family:'Marcellus',serif;font-size:20px;cursor:pointer">{{ r.name }}</a>
+            <span style="font-size:13px;color:rgba(36,31,33,0.6)">{{ r.tagline }}</span>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px;gap:8px;flex-wrap:wrap">
+              <span style="font-size:13.5px;font-weight:600">{{ r.priceLabel }}</span>
+              <div style="display:flex;gap:8px">
+                <button onClick="{{ r.quick }}" style="border:1px solid rgba(36,31,33,0.35);background:transparent;padding:7px 12px;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;font-family:'Figtree',sans-serif" style-hover="background:#241f21;color:#f6f1ee;border-color:#241f21">Vista rápida</button>
+                <button onClick="{{ r.add }}" style="border:none;background:#9e3450;color:#f6f1ee;padding:7px 14px;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;font-family:'Figtree',sans-serif" style-hover="background:#241f21">Añadir</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</main>
+</sc-if>
+
+<footer style="background:#241f21;color:#f6f1ee">
+  <div style="max-width:1360px;margin:0 auto;padding:64px clamp(16px,4vw,40px) 36px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:36px">
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <span style="font-family:'Marcellus',serif;font-size:24px;letter-spacing:0.18em">MUJER&nbsp;BONITA</span>
+      <p style="margin:0;font-size:13.5px;line-height:1.7;color:rgba(246,241,238,0.55);max-width:280px">Tu tienda departamental. Perfumes hoy; ropa, calzado y accesorios muy pronto. Venezuela.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:11px;font-size:13.5px">
+      <span style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(246,241,238,0.45)">Tienda</span>
+      <a href="#" onClick="{{ goPerfumes }}" style="color:#f6f1ee;cursor:pointer">Perfumes</a>
+      <a href="#" onClick="{{ goQuiz }}" style="color:#f6f1ee;cursor:pointer">Quiz: encuentra el tuyo</a>
+      <a href="#" onClick="{{ goRopa }}" style="color:#f6f1ee;cursor:pointer">Ropa</a>
+      <a href="#" onClick="{{ goAccesorios }}" style="color:#f6f1ee;cursor:pointer">Accesorios</a>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:11px;font-size:13.5px">
+      <span style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(246,241,238,0.45)">Ayuda</span>
+      <span style="color:rgba(246,241,238,0.75)">Envíos y devoluciones</span>
+      <span style="color:rgba(246,241,238,0.75)">Métodos de pago</span>
+      <span style="color:rgba(246,241,238,0.75)">WhatsApp</span>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:11px;font-size:13.5px">
+      <span style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(246,241,238,0.45)">Síguenos</span>
+      <span style="color:rgba(246,241,238,0.75)">Instagram</span>
+      <span style="color:rgba(246,241,238,0.75)">TikTok</span>
+    </div>
+  </div>
+  <div style="max-width:1360px;margin:0 auto;padding:0 clamp(16px,4vw,40px) 30px;font-size:12px;color:rgba(246,241,238,0.4)">© 2026 Mujer Bonita · Venezuela</div>
+</footer>
+
+<!-- ============ CHECKOUT ============ -->
+<sc-if value="{{ isCheckout }}" hint-placeholder-val="{{ false }}">
+<main style="max-width:1160px;margin:0 auto;padding:48px clamp(16px,4vw,40px) 96px;animation:fadeUp 0.5s ease both">
+  <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:36px">
+    <span style="font-size:12px;letter-spacing:0.28em;text-transform:uppercase;color:#b3121b">Finalizar compra</span>
+    <h1 style="margin:0;font-family:'Marcellus',serif;font-weight:400;font-size:clamp(30px,4vw,44px)">Ya casi es tuyo</h1>
+  </div>
+  <div style="display:flex;gap:10px;margin-bottom:36px;flex-wrap:wrap">
+    <sc-for list="{{ ckSteps }}" as="st" hint-placeholder-count="3">
+      <div onClick="{{ st.go }}" style="display:flex;align-items:center;gap:10px;padding:10px 18px;border:1px solid {{ st.bd }};background:{{ st.bg }};cursor:pointer">
+        <span style="width:22px;height:22px;border-radius:99px;background:{{ st.numBg }};color:{{ st.numFg }};display:inline-flex;align-items:center;justify-content:center;font-size:11.5px;font-weight:600">{{ st.n }}</span>
+        <span style="font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:{{ st.fg }}">{{ st.label }}</span>
+      </div>
+    </sc-for>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:44px;align-items:start">
+    <div style="display:flex;flex-direction:column;gap:26px">
+      <sc-if value="{{ ckIsDatos }}" hint-placeholder-val="{{ true }}">
+        <div style="display:flex;flex-direction:column;gap:18px">
+          <h2 style="margin:0;font-family:'Marcellus',serif;font-weight:400;font-size:24px">Datos de contacto y envío</h2>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px">
+            <input value="{{ ckName }}" onInput="{{ setCkName }}" placeholder="Nombre y apellido" style="border:1px solid rgba(36,31,33,0.25);background:#fdfbf9;padding:15px 16px;font-size:14px;font-family:'Figtree',sans-serif;outline:none">
+            <input value="{{ ckPhone }}" onInput="{{ setCkPhone }}" placeholder="Teléfono / WhatsApp" style="border:1px solid rgba(36,31,33,0.25);background:#fdfbf9;padding:15px 16px;font-size:14px;font-family:'Figtree',sans-serif;outline:none">
+            <input value="{{ ckEmail }}" onInput="{{ setCkEmail }}" placeholder="Correo electrónico" style="border:1px solid rgba(36,31,33,0.25);background:#fdfbf9;padding:15px 16px;font-size:14px;font-family:'Figtree',sans-serif;outline:none">
+            <input value="{{ ckCity }}" onInput="{{ setCkCity }}" placeholder="Ciudad / Estado" style="border:1px solid rgba(36,31,33,0.25);background:#fdfbf9;padding:15px 16px;font-size:14px;font-family:'Figtree',sans-serif;outline:none">
+          </div>
+          <input value="{{ ckAddress }}" onInput="{{ setCkAddress }}" placeholder="Dirección exacta (urbanización, calle, casa/apto, punto de referencia)" style="border:1px solid rgba(36,31,33,0.25);background:#fdfbf9;padding:15px 16px;font-size:14px;font-family:'Figtree',sans-serif;outline:none">
+          <button onClick="{{ ckNext }}" style="align-self:flex-start;border:none;background:#b3121b;color:#f6f1ee;padding:16px 34px;font-size:12.5px;letter-spacing:0.16em;text-transform:uppercase;cursor:pointer;font-family:'Figtree',sans-serif" style-hover="background:#241f21">Continuar al envío →</button>
+        </div>
+      </sc-if>
+      <sc-if value="{{ ckIsEnvio }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;flex-direction:column;gap:18px">
+          <h2 style="margin:0;font-family:'Marcellus',serif;font-weight:400;font-size:24px">¿Cómo te lo hacemos llegar?</h2>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <sc-for list="{{ shipOptions }}" as="o" hint-placeholder-count="3">
+              <div onClick="{{ o.pick }}" style="display:flex;justify-content:space-between;align-items:center;gap:14px;border:1px solid {{ o.bd }};background:{{ o.bg }};padding:18px 20px;cursor:pointer">
+                <div style="display:flex;flex-direction:column;gap:3px">
+                  <span style="font-family:'Marcellus',serif;font-size:18px">{{ o.name }}</span>
+                  <span style="font-size:12.5px;color:rgba(36,31,33,0.6)">{{ o.desc }}</span>
+                </div>
+                <span style="font-size:14px;font-weight:600;white-space:nowrap">{{ o.priceLabel }}</span>
+              </div>
+            </sc-for>
+          </div>
+          <button onClick="{{ ckNext }}" style="align-self:flex-start;border:none;background:#b3121b;color:#f6f1ee;padding:16px 34px;font-size:12.5px;letter-spacing:0.16em;text-transform:uppercase;cursor:pointer;font-family:'Figtree',sans-serif" style-hover="background:#241f21">Continuar al pago →</button>
+        </div>
+      </sc-if>
+      <sc-if value="{{ ckIsPago }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;flex-direction:column;gap:18px">
+          <h2 style="margin:0;font-family:'Marcellus',serif;font-weight:400;font-size:24px">¿Cómo prefieres pagar?</h2>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px">
+            <sc-for list="{{ payOptions }}" as="o" hint-placeholder-count="4">
+              <div onClick="{{ o.pick }}" style="border:1px solid {{ o.bd }};background:{{ o.bg }};padding:18px 20px;cursor:pointer;display:flex;flex-direction:column;gap:4px">
+                <span style="font-family:'Marcellus',serif;font-size:17px">{{ o.name }}</span>
+                <span style="font-size:12px;color:rgba(36,31,33,0.6);line-height:1.5">{{ o.desc }}</span>
+              </div>
+            </sc-for>
+          </div>
+          <div style="background:#efe8e3;padding:16px 18px;font-size:12.5px;color:rgba(36,31,33,0.7);line-height:1.6">{{ payNote }}</div>
+          <button onClick="{{ ckConfirm }}" style="align-self:flex-start;border:none;background:#b3121b;color:#f6f1ee;padding:17px 36px;font-size:13px;letter-spacing:0.16em;text-transform:uppercase;cursor:pointer;font-family:'Figtree',sans-serif" style-hover="background:#241f21">Confirmar pedido — {{ ckTotalLabel }}</button>
+        </div>
+      </sc-if>
+    </div>
+    <div style="background:#fdfbf9;border:1px solid rgba(36,31,33,0.14);padding:26px;display:flex;flex-direction:column;gap:14px;position:sticky;top:100px">
+      <span style="font-family:'Marcellus',serif;font-size:20px">Tu pedido</span>
+      <sc-for list="{{ cartItems }}" as="it" hint-placeholder-count="1">
+        <div style="display:flex;justify-content:space-between;gap:12px;font-size:13.5px;border-bottom:1px solid rgba(36,31,33,0.1);padding-bottom:10px">
+          <span>{{ it.qty }} × {{ it.name }}</span><span style="font-weight:600;white-space:nowrap">{{ it.lineLabel }}</span>
+        </div>
+      </sc-for>
+      <div style="display:flex;justify-content:space-between;font-size:13.5px"><span>Subtotal</span><span>{{ cartTotalLabel }}</span></div>
+      <sc-if value="{{ cartHasRemote }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;justify-content:space-between;font-size:13.5px"><span>Envío entre sucursales</span><span>{{ transferLabel }}</span></div>
+      </sc-if>
+      <div style="display:flex;justify-content:space-between;font-size:13.5px"><span>Envío</span><span>{{ ckShipLabel }}</span></div>
+      <div style="display:flex;justify-content:space-between;font-size:16px;font-weight:600;border-top:1px solid rgba(36,31,33,0.15);padding-top:12px"><span>Total</span><span>{{ ckTotalLabel }}</span></div>
+    </div>
+  </div>
+</main>
+</sc-if>
+
+<!-- ============ CONFIRMACIÓN ============ -->
+<sc-if value="{{ isConfirm }}" hint-placeholder-val="{{ false }}">
+<main style="max-width:720px;margin:0 auto;padding:80px clamp(16px,4vw,40px) 120px;text-align:center;display:flex;flex-direction:column;gap:22px;align-items:center;animation:fadeUp 0.5s ease both">
+  <div style="width:72px;height:72px;border-radius:99px;background:#b3121b;color:#f6f1ee;display:flex;align-items:center;justify-content:center;font-size:32px">✓</div>
+  <span style="font-size:12px;letter-spacing:0.3em;text-transform:uppercase;color:#b3121b">Pedido {{ orderNo }}</span>
+  <h1 style="margin:0;font-family:'Marcellus',serif;font-weight:400;font-size:clamp(32px,4.5vw,46px)">¡Gracias, {{ orderName }}!</h1>
+  <p style="margin:0;font-size:15px;line-height:1.75;color:rgba(36,31,33,0.7);max-width:480px">Recibimos tu pedido. Te escribiremos por WhatsApp para confirmar el pago por <strong>{{ orderPay }}</strong> y coordinar la entrega por <strong>{{ orderShip }}</strong>.</p>
+  <div style="background:#fdfbf9;border:1px solid rgba(36,31,33,0.14);padding:24px 28px;display:flex;flex-direction:column;gap:10px;width:100%;max-width:440px;text-align:left">
+    <sc-for list="{{ orderItems }}" as="it" hint-placeholder-count="1">
+      <div style="display:flex;justify-content:space-between;gap:12px;font-size:13.5px"><span>{{ it.qty }} × {{ it.name }}</span><span style="font-weight:600">{{ it.lineLabel }}</span></div>
+    </sc-for>
+    <div style="display:flex;justify-content:space-between;font-size:15px;font-weight:600;border-top:1px solid rgba(36,31,33,0.15);padding-top:10px"><span>Total</span><span>{{ orderTotalLabel }}</span></div>
+  </div>
+  <a href="#" onClick="{{ goHome }}" style="background:#241f21;color:#f6f1ee;padding:15px 32px;font-size:12.5px;letter-spacing:0.16em;text-transform:uppercase;cursor:pointer" style-hover="background:#b3121b">Seguir comprando</a>
+</main>
+</sc-if>
+
+<!-- ============ AVISO OTRA SUCURSAL ============ -->
+<sc-if value="{{ remoteNoticeOpen }}" hint-placeholder-val="{{ false }}">
+<div style="position:fixed;inset:0;z-index:90;display:flex;align-items:center;justify-content:center;padding:20px">
+  <div onClick="{{ closeRemoteNotice }}" style="position:absolute;inset:0;background:rgba(36,31,33,0.5)"></div>
+  <div style="position:relative;background:#f6f1ee;width:520px;max-width:100%;padding:36px;display:flex;flex-direction:column;gap:16px;animation:popIn 0.3s ease both;box-shadow:0 40px 90px rgba(36,31,33,0.35)">
+    <span style="font-size:11.5px;letter-spacing:0.24em;text-transform:uppercase;color:#b3121b">Compra desde otra sucursal</span>
+    <span style="font-family:'Marcellus',serif;font-size:28px;line-height:1.1">Este producto viene de {{ remoteNotice.branchName }}</span>
+    <p style="margin:0;font-size:14.5px;line-height:1.7;color:rgba(36,31,33,0.75)">Estás comprando desde <strong>{{ branchName }}</strong>, donde <strong>{{ remoteNotice.prodName }}</strong> está agotado. Lo traeremos desde {{ remoteNotice.branchName }}: tarda <strong>{{ remoteNotice.eta }}</strong> en llegarte y tiene un costo adicional de envío de <strong>{{ remoteNotice.feeLabel }}</strong>.</p>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:4px">
+      <button onClick="{{ confirmRemoteAdd }}" style="border:none;background:#b3121b;color:#f6f1ee;padding:14px 24px;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;cursor:pointer;font-family:'Figtree',sans-serif" style-hover="background:#241f21">Entendido, añadir</button>
+      <button onClick="{{ closeRemoteNotice }}" style="border:1px solid #241f21;background:transparent;padding:14px 24px;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;cursor:pointer;font-family:'Figtree',sans-serif" style-hover="background:#241f21;color:#f6f1ee">Cancelar</button>
+    </div>
+  </div>
+</div>
+</sc-if>
+
+<!-- ============ QUICK VIEW ============ -->
+<sc-if value="{{ quickOpen }}" hint-placeholder-val="{{ false }}">
+<div style="position:fixed;inset:0;z-index:70;display:flex;align-items:center;justify-content:center;padding:20px">
+  <div onClick="{{ closeQuick }}" style="position:absolute;inset:0;background:rgba(36,31,33,0.5)"></div>
+  <div style="position:relative;background:#f6f1ee;width:760px;max-width:100%;max-height:90vh;overflow:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));animation:popIn 0.3s ease both;box-shadow:0 40px 90px rgba(36,31,33,0.35)">
+    <div style="aspect-ratio:4/5;background:#ebe3dd;min-height:300px"><image-slot id="prod-{{ quickProd.slug }}" shape="rect" src="{{ quickProd.img }}" credit="{{ quickProd.credit }}" credit-href="{{ quickProd.chref }}" placeholder="Foto: {{ quickProd.brand }} {{ quickProd.name }}"></image-slot></div>
+    <div style="padding:32px;display:flex;flex-direction:column;gap:14px">
+      <a href="#" onClick="{{ closeQuick }}" style="align-self:flex-end;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;color:rgba(36,31,33,0.55)">Cerrar ✕</a>
+      <span style="font-size:11.5px;letter-spacing:0.2em;text-transform:uppercase;color:#9e3450">{{ quickProd.brand }} · {{ quickProd.family }}</span>
+      <span style="font-family:'Marcellus',serif;font-size:30px;line-height:1.1">{{ quickProd.name }}</span>
+      <span style="font-size:14px;color:rgba(36,31,33,0.65);line-height:1.6">{{ quickProd.story }}</span>
+      <div style="display:flex;gap:12px;align-items:baseline">
+        <span style="font-size:20px;font-weight:600">{{ quickProd.priceLabel }}</span>
+        <span style="font-size:12.5px;color:rgba(36,31,33,0.55)">{{ quickProd.presentation }}</span>
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:4px">
+        <button onClick="{{ quickProd.add }}" style="border:none;background:#9e3450;color:#f6f1ee;padding:14px 24px;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;cursor:pointer;font-family:'Figtree',sans-serif" style-hover="background:#241f21">Añadir a la bolsa</button>
+        <sc-if value="{{ quickIsPerfume }}" hint-placeholder-val="{{ false }}"><button onClick="{{ quickProd.openBtn }}" style="border:1px solid #241f21;background:transparent;padding:14px 24px;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;cursor:pointer;font-family:'Figtree',sans-serif" style-hover="background:#241f21;color:#f6f1ee">Ver ficha completa</button></sc-if>
+      </div>
+    </div>
+  </div>
+</div>
+</sc-if>
+
+<!-- ============ CART DRAWER ============ -->
+<sc-if value="{{ cartOpen }}" hint-placeholder-val="{{ false }}">
+<div style="position:fixed;inset:0;z-index:80">
+  <div onClick="{{ closeCart }}" style="position:absolute;inset:0;background:rgba(36,31,33,0.45)"></div>
+  <div style="position:absolute;top:0;right:0;bottom:0;width:420px;max-width:92vw;background:#f6f1ee;display:flex;flex-direction:column;animation:drawerIn 0.35s cubic-bezier(0.22,1,0.36,1) both;box-shadow:-24px 0 60px rgba(36,31,33,0.25)">
+    <div style="display:flex;justify-content:space-between;align-items:center;padding:22px 26px;border-bottom:1px solid rgba(36,31,33,0.12)">
+      <span style="font-family:'Marcellus',serif;font-size:20px">Tu bolsa ({{ cartCount }})</span>
+      <a href="#" onClick="{{ closeCart }}" style="font-size:12px;letter-spacing:0.14em;text-transform:uppercase;cursor:pointer">Cerrar ✕</a>
+    </div>
+    <div style="padding:16px 26px 18px;border-bottom:1px solid rgba(36,31,33,0.12);background:{{ minBg }};display:flex;flex-direction:column;gap:10px">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px">
+        <span style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:{{ minAccent }}">Venta al mayor · mínimo {{ minQty }} unidades</span>
+        <span style="font-size:13px;font-weight:600;white-space:nowrap">{{ cartCount }} / {{ minQty }}</span>
+      </div>
+      <div style="position:relative;height:8px;background:rgba(36,31,33,0.12);border-radius:99px;overflow:hidden">
+        <div style="position:absolute;inset:0 auto 0 0;width:{{ minPct }};background:{{ minAccent }};border-radius:99px;transition:width 0.5s cubic-bezier(0.22,1,0.36,1)"></div>
+        <sc-for list="{{ minTicks }}" as="tk" hint-placeholder-count="0">
+          <span style="position:absolute;top:0;bottom:0;left:{{ tk.left }};width:1px;background:rgba(246,241,238,0.7)"></span>
+        </sc-for>
+      </div>
+      <span style="font-size:13px;line-height:1.5;color:#241f21">{{ minMsg }}</span>
+    </div>
+    <div style="flex:1;overflow:auto;padding:6px 26px;display:flex;flex-direction:column">
+      <sc-if value="{{ cartEmpty }}" hint-placeholder-val="{{ false }}">
+        <div style="padding:56px 0;text-align:center;display:flex;flex-direction:column;gap:14px;align-items:center">
+          <span style="font-family:'Marcellus',serif;font-size:22px">Tu bolsa está vacía</span>
+          <a href="#" onClick="{{ closeCartToPerfumes }}" style="font-size:12px;letter-spacing:0.14em;text-transform:uppercase;border-bottom:1px solid #241f21;padding-bottom:3px;cursor:pointer">Ver perfumes</a>
+        </div>
+      </sc-if>
+      <sc-for list="{{ cartItems }}" as="it" hint-placeholder-count="0">
+        <div style="display:flex;gap:14px;padding:16px 0;border-bottom:1px solid rgba(36,31,33,0.1);align-items:center">
+          <div style="width:60px;height:76px;background:#ebe3dd;flex:none;display:flex;align-items:center;justify-content:center;font-family:'Marcellus',serif;font-size:20px;color:#9e3450">{{ it.initial }}</div>
+          <div style="flex:1;display:flex;flex-direction:column;gap:2px">
+            <span style="font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#9e3450">{{ it.brand }}</span>
+            <span style="font-family:'Marcellus',serif;font-size:16.5px">{{ it.name }}</span>
+            <span style="font-size:12px;color:rgba(36,31,33,0.55)">{{ it.presentation }}</span>
+            <sc-if value="{{ it.remote }}" hint-placeholder-val="{{ false }}">
+              <span style="font-size:11.5px;color:#b3121b;line-height:1.4;margin-top:2px">Desde {{ it.branchName }} · {{ it.eta }} · +{{ it.feeLabel }} envío entre sucursales</span>
+            </sc-if>
+            <div style="display:flex;align-items:center;gap:12px;margin-top:5px">
+              <button onClick="{{ it.dec }}" style="width:24px;height:24px;border:1px solid rgba(36,31,33,0.3);background:transparent;cursor:pointer;font-family:'Figtree',sans-serif">−</button>
+              <span style="font-size:13px">{{ it.qty }}</span>
+              <button onClick="{{ it.inc }}" style="width:24px;height:24px;border:1px solid rgba(36,31,33,0.3);background:transparent;cursor:pointer;font-family:'Figtree',sans-serif">+</button>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px">
+            <span style="font-size:13.5px;font-weight:600">{{ it.lineLabel }}</span>
+            <a href="#" onClick="{{ it.remove }}" style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(36,31,33,0.45);cursor:pointer">Quitar</a>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+    <sc-if value="{{ cartHasItems }}" hint-placeholder-val="{{ false }}">
+    <div style="padding:20px 26px 26px;border-top:1px solid rgba(36,31,33,0.12);display:flex;flex-direction:column;gap:12px;background:#efe8e3">
+      <sc-if value="{{ cartHasRemote }}" hint-placeholder-val="{{ false }}">
+        <div style="background:#fdf1ea;border:1px solid rgba(179,18,27,0.25);padding:12px 14px;font-size:12.5px;line-height:1.5;color:#241f21">Algunos productos vienen de otra sucursal: pueden tardar más días en llegarte y tienen un costo adicional de envío ({{ transferLabel }}).</div>
+      </sc-if>
+      <div style="display:flex;justify-content:space-between;font-size:15px"><span>Subtotal</span><span style="font-weight:600">{{ cartTotalLabel }}</span></div>
+      <sc-if value="{{ cartHasRemote }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;justify-content:space-between;font-size:13px;color:rgba(36,31,33,0.7)"><span>Envío entre sucursales</span><span>{{ transferLabel }}</span></div>
+      </sc-if>
+      <span style="font-size:12px;color:rgba(36,31,33,0.55)">Envío calculado al finalizar. Pago móvil, Zelle, tarjeta o USD efectivo.</span>
+      <sc-if value="{{ minOk }}" hint-placeholder-val="{{ true }}">
+      <button onClick="{{ goCheckout }}" style="border:none;background:#9e3450;color:#f6f1ee;padding:17px;font-size:13px;letter-spacing:0.16em;text-transform:uppercase;cursor:pointer;font-family:'Figtree',sans-serif" style-hover="background:#241f21">Finalizar compra</button>
+      </sc-if>
+      <sc-if value="{{ minNotOk }}" hint-placeholder-val="{{ false }}">
+      <button disabled="{{ true }}" style="border:none;background:rgba(36,31,33,0.18);color:rgba(36,31,33,0.55);padding:17px;font-size:13px;letter-spacing:0.16em;text-transform:uppercase;cursor:not-allowed;font-family:'Figtree',sans-serif">Faltan {{ minLeft }} unidades para comprar</button>
+      <a href="#" onClick="{{ closeCartToPerfumes }}" style="text-align:center;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#b3121b;border-bottom:1px solid #b3121b;align-self:center;padding-bottom:3px;cursor:pointer">Seguir agregando productos</a>
+      </sc-if>
+    </div>
+    </sc-if>
+  </div>
+</div>
+</sc-if>
+
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#9e3450"></rect><text x="50" y="63" font-family="Georgia,serif" font-size="32" fill="#f6f1ee" text-anchor="middle">MB</text></svg></template></x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;currency&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;Ambas&quot;,&quot;options&quot;:[&quot;USD&quot;,&quot;Bs.&quot;,&quot;Ambas&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Tienda&quot;},&quot;showAnnouncement&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Tienda&quot;},&quot;minQty&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:12,&quot;min&quot;:1,&quot;max&quot;:100,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Venta al mayor&quot;}}">
+class Component extends DCLogic {
+  state = { screen: 'landing', world: null, megaWorld: null, landingTab: 'dama', famFilter: 'Todas', brandFilter: 'Todas', ropaCat: 'Todas', slug: 'yara', cart: [], cartOpen: false, quickSlug: null, megaOpen: false, quizStep: 0, quizAnswers: [],
+    ckStep: 0, ckName: '', ckPhone: '', ckEmail: '', ckCity: '', ckAddress: '', shipMethod: 'delivery', payMethod: 'pagomovil', lastOrder: null,
+    branch: 'ccs', branchMenuOpen: false, remoteNotice: null, priceMin: 0, priceMax: 0 };
+  branches() {
+    return [
+      { k: 'ccs', name: 'Caracas', addr: 'C.C. Chacao, nivel Feria', eta: '2–3 días', fee: 3 },
+      { k: 'val', name: 'Valencia', addr: 'C.C. Metrópolis, nivel 1', eta: '3–4 días', fee: 4 },
+      { k: 'mcy', name: 'Maracay', addr: 'C.C. Las Américas, PB', eta: '3–4 días', fee: 4 },
+      { k: 'mar', name: 'Maracaibo', addr: 'C.C. Lago Mall, nivel Lago', eta: '4–6 días', fee: 6 }
+    ];
+  }
+  // stock per branch: deterministic from slug so every product is out in some branch
+  stockOf(slug) {
+    const ks = ['ccs', 'val', 'mcy', 'mar'];
+    let h = 0; for (const ch of slug) h = (h * 31 + ch.charCodeAt(0)) % 1000003;
+    const out = new Set([ks[h % 4]]); if (h % 3 === 0) out.add(ks[(h >> 2) % 4]);
+    return ks.filter(k => !out.has(k));
+  }
+  inStock(slug, k) { return this.stockOf(slug).includes(k || this.state.branch); }
+  dataM() {
+    return [
+      {slug:'sauvage', brand:'Dior', name:'Sauvage', family:'Fresco', ml:100, price:155, badge:'El más vendido', tagline:'El masculino más famoso del planeta',
+       top:'Bergamota de Calabria, pimienta', heart:'Lavanda, geranio, pimienta de Sichuan', base:'Ambroxan, cedro, labdanum',
+       story:'Fresco, potente y reconocible a metros. El que nunca es mala idea regalar.',
+       img:'https://images.pexels.com/photos/17978253/pexels-photo-17978253.jpeg?auto=compress&cs=tinysrgb&w=1600', credit:'Photo by Abhijeet Gourav on Pexels', chref:'https://www.pexels.com/photo/black-perfume-bottle-for-men-17978253/'},
+      {slug:'bleu-chanel', brand:'Chanel', name:'Bleu de Chanel', family:'Amaderado', ml:100, price:172, badge:'Icono', tagline:'Elegancia que funciona a toda hora',
+       top:'Limón, menta, pimienta rosa', heart:'Jengibre, nuez moscada, jazmín', base:'Sándalo, cedro, incienso',
+       story:'El traje azul de los perfumes: correcto en la oficina, letal en la cena.',
+       img:'https://images.pexels.com/photos/21614757/pexels-photo-21614757.jpeg?auto=compress&cs=tinysrgb&w=1600', credit:'Photo on Pexels', chref:'https://www.pexels.com/photo/man-hands-holding-perfume-21614757/'},
+      {slug:'cdn-intense', brand:'Armaf', name:'Club de Nuit Intense Man', family:'Amaderado', ml:105, price:48, badge:'Alternativa nicho', tagline:'Huele a mucho más de lo que cuesta',
+       top:'Limón, piña, manzana', heart:'Rosa, jazmín, abedul', base:'Almizcle, ámbar gris, vainilla',
+       story:'El secreto de los que huelen caro sin gastar caro. Ahumado, frutal y con proyección seria.',
+       img:'https://images.pexels.com/photos/1961792/pexels-photo-1961792.jpeg?auto=compress&cs=tinysrgb&w=1600', credit:'Photo by Valeria Boltneva on Pexels', chref:'https://www.pexels.com/photo/photo-of-perfume-bottle-1961792/'},
+      {slug:'asad', brand:'Lattafa', name:'Asad', family:'Ámbar', ml:100, price:36, badge:'Viral', tagline:'Oscuro, dulce y con estela de león',
+       top:'Pimienta negra, piña, tabaco', heart:'Café, iris, lavanda', base:'Vainilla, ámbar, maderas',
+       story:'El viral masculino de Lattafa: inspirado en los grandes de noche, a precio de todos los días.',
+       img:'https://images.pexels.com/photos/2814832/pexels-photo-2814832.jpeg?auto=compress&cs=tinysrgb&w=1600', credit:'Photo by Fidel Hajj on Pexels', chref:'https://www.pexels.com/photo/perfume-bottle-2814832/'},
+      {slug:'acqua-gio', brand:'Giorgio Armani', name:'Acqua di Giò', family:'Fresco', ml:100, price:128, badge:'Clásico fresco', tagline:'Mar Mediterráneo en la piel',
+       top:'Bergamota, neroli, mandarina', heart:'Jazmín marino, romero', base:'Almizcle, cedro, pachulí',
+       story:'Treinta años oliendo a vacaciones. El acuático por excelencia para nuestro clima.'},
+      {slug:'eros', brand:'Versace', name:'Eros', family:'Ámbar', ml:100, price:105, badge:'De noche', tagline:'Menta, vainilla y cero timidez',
+       top:'Menta, manzana verde, limón', heart:'Haba tonka, ambroxan, geranio', base:'Vainilla, vetiver, cedro',
+       story:'El de las salidas nocturnas: dulce, fresco y directo. No pasa desapercibido jamás.'}
+    ];
+  }
+  dataK() {
+    return [
+      {slug:'para-mi-bebe', brand:'Para Mi Bebé', name:'Colonia Original', family:'Suave', ml:750, price:12, badge:'El clásico', tagline:'El olor a bebé de toda la vida',
+       top:'Lavanda, bergamota', heart:'Manzanilla, flores blancas', base:'Almizcle suave',
+       story:'Generaciones enteras huelen a esto. Sin alcohol agresivo, suave con la piel.',
+       img:'https://images.pexels.com/photos/1961792/pexels-photo-1961792.jpeg?auto=compress&cs=tinysrgb&w=1200', credit:'Photo by Valeria Boltneva on Pexels', chref:'https://www.pexels.com/photo/photo-of-perfume-bottle-1961792/'},
+      {slug:'nenuco', brand:'Nenuco', name:'Agua de Colonia', family:'Suave', ml:400, price:14, badge:'Best seller', tagline:'Frescura española para los peques',
+       top:'Limón, naranja', heart:'Lavanda', base:'Notas empolvadas',
+       story:'El ritual después del baño: fresco, limpio y delicado para el día a día.',
+       img:'https://images.pexels.com/photos/12563417/pexels-photo-12563417.jpeg?auto=compress&cs=tinysrgb&w=1200', credit:'Photo by Pegah Sharifi on Pexels', chref:'https://www.pexels.com/photo/bottle-of-perfume-on-a-white-and-pink-background-12563417/'},
+      {slug:'johnsons', brand:"Johnson's", name:'Baby Colonia', family:'Suave', ml:200, price:10, badge:'Piel delicada', tagline:'Suavidad probada por pediatras',
+       top:'Notas cítricas suaves', heart:'Flores blancas', base:'Almizcle limpio',
+       story:'Hipoalergénica y ligera. Para los más chiquitos de la casa.',
+       img:'https://images.pexels.com/photos/30999189/pexels-photo-30999189.jpeg?auto=compress&cs=tinysrgb&w=1200', credit:'Photo by ALOK DAS on Pexels', chref:'https://www.pexels.com/photo/elegant-perfume-bottles-on-pink-background-display-30999189/'},
+      {slug:'mb-kids-mist', brand:'Mujer Bonita', name:'Body Mist Frutal Kids', family:'Fresco', ml:120, price:9, badge:'Nuevo', tagline:'Frutas y diversión para el cole',
+       top:'Fresa, mandarina', heart:'Durazno, coco', base:'Vainilla ligera',
+       story:'Nuestra mezcla propia para niños y niñas: frutal, divertida y que aguanta el recreo.',
+       img:'https://images.pexels.com/photos/10415082/pexels-photo-10415082.jpeg?auto=compress&cs=tinysrgb&w=1200', credit:'Photo by Th2city Santana on Pexels', chref:'https://www.pexels.com/photo/close-up-of-a-perfume-bottle-10415082/'}
+    ];
+  }
+  data() {
+    return [
+      {slug:'yara', brand:'Lattafa', name:'Yara', family:'Ámbar', ml:100, price:34, badge:'Viral', tagline:'El viral de TikTok: cremoso, dulce y coqueto',
+       top:'Orquídea, heliotropo', heart:'Acorde gourmand, frutas tropicales', base:'Vainilla, almizcle, sándalo',
+       story:'El perfume del que todas hablan. Dulce cremoso sin empalagar, dura horas y huele a mucho más de lo que cuesta.'},
+      {slug:'khamrah', brand:'Lattafa', name:'Khamrah', family:'Ámbar', ml:100, price:44, badge:'Deja estela', tagline:'Especiado y dulce, deja estela toda la noche',
+       top:'Canela, nuez moscada, bergamota', heart:'Dátil, praliné, flores blancas', base:'Vainilla, haba tonka, ámbar',
+       story:'Para las que quieren que las recuerden. Especias cálidas y dátil dulce con una proyección que llena la habitación.'},
+      {slug:'club-de-nuit-woman', brand:'Armaf', name:'Club de Nuit Untold', family:'Ámbar', ml:100, price:56, badge:'Alternativa nicho', tagline:'La alternativa que confunden con nicho',
+       top:'Piña, grosella, bergamota', heart:'Rosa, jazmín, abedul', base:'Almizcle, ámbar gris, vainilla',
+       story:'El secreto mejor guardado: aroma de perfumería de lujo a precio real. Frutal-ámbar elegante, unisex y adictivo.'},
+      {slug:'coco-mademoiselle', brand:'Chanel', name:'Coco Mademoiselle', family:'Floral', ml:100, price:178, badge:'Icono', tagline:'El clásico que nunca falla',
+       top:'Naranja, bergamota, mandarina', heart:'Rosa, jazmín, lichi', base:'Pachulí, vetiver, vainilla',
+       story:'Si existe un perfume infalible, es este. Fresco al inicio, elegante siempre. El regalo (o autorregalo) seguro.'},
+      {slug:'si', brand:'Giorgio Armani', name:'Sí', family:'Floral', ml:100, price:132, badge:'Oficina y más', tagline:'Elegante para la oficina y para después',
+       top:'Grosella negra, mandarina', heart:'Rosa de mayo, fresia', base:'Vainilla, pachulí, maderas',
+       story:'Un sí a todo: al trabajo, a la cena, al plan improvisado. Chipre frutal moderno, femenino y con carácter.'},
+      {slug:'good-girl', brand:'Carolina Herrera', name:'Good Girl', family:'Ámbar', ml:80, price:135, badge:'Best seller', tagline:'El tacón más famoso del mundo',
+       top:'Almendra, café, limón', heart:'Nardo, jazmín sambac', base:'Haba tonka, cacao, sándalo',
+       story:'Buena de día, intensa de noche. Nardo luminoso sobre un fondo oscuro de cacao y tonka. Un clásico moderno.'},
+      {slug:'miss-dior', brand:'Dior', name:'Miss Dior', family:'Floral', ml:100, price:148, badge:'Romántico', tagline:'Un ramo de flores hecho perfume',
+       top:'Mandarina siciliana', heart:'Rosa de Grasse, peonía', base:'Almizcle blanco, vainilla',
+       story:'Romántico sin ser cursi. Rosa fresca y limpia que huele a arreglada, a cita, a día especial.'},
+      {slug:'libre', brand:'Yves Saint Laurent', name:'Libre', family:'Floral', ml:90, price:138, badge:'Con actitud', tagline:'Lavanda con actitud francesa',
+       top:'Lavanda, mandarina, grosella', heart:'Azahar, jazmín', base:'Vainilla de Madagascar, ámbar gris',
+       story:'La lavanda dejó de ser de abuela. Aquí es audaz, cálida y adictiva. Para las que no piden permiso.'},
+      {slug:'bright-crystal', brand:'Versace', name:'Bright Crystal', family:'Fresco', ml:90, price:95, badge:'Para el calor', tagline:'Fresco y luminoso para el día a día',
+       top:'Granada, yuzu, acordes helados', heart:'Peonía, magnolia, loto', base:'Almizcle, caoba, ámbar vegetal',
+       story:'Hecho para el clima nuestro: ligero, frutal y limpio. El que te pones a diario y nunca molesta.'},
+      {slug:'light-blue', brand:'Dolce & Gabbana', name:'Light Blue', family:'Fresco', ml:100, price:112, badge:'Clásico fresco', tagline:'Verano mediterráneo en un frasco',
+       top:'Limón siciliano, manzana verde', heart:'Jazmín, rosa blanca, bambú', base:'Cedro, almizcle, ámbar',
+       story:'Cítrico, crujiente y luminoso. Más de veinte años siendo el fresco por excelencia, y con razón.'}
+    ];
+  }
+  imgs() {
+    return { yara:['photo-1594035910387-fea47794261f','Laura Chouette','laurachouette'], khamrah:['photo-1709662369957-0cbf9f8452fc','Fulvio Ciccolo','scentspiracy'],
+      'club-de-nuit-woman':['photo-1543422655-ac1c6ca993ed','Siora Photography','siora18'], 'coco-mademoiselle':['photo-1631701518512-3c811d83bd65','Laura Chouette','laurachouette'],
+      si:['photo-1631701464241-99f7f0ed6f8f','Laura Chouette','laurachouette'], 'good-girl':['photo-1727264879316-10f49f260eae','Laura Chouette','laurachouette'],
+      'miss-dior':['photo-1708265500552-c256df13d3ca','Laura Chouette','laurachouette'], libre:['photo-1589493732575-11a963a7c415','Lindsey Savage','lindseysavagecreative'],
+      'bright-crystal':['photo-1763987300634-7b0822cbf390','majed swan','majedswan'], 'light-blue':['photo-1713999536891-335a3cc9a54f','MAJDAH MAJED','majdah_majed'] };
+  }
+  worlds() {
+    return {
+      dama: { label: 'Dama', sub: 'Ella primero', card: 'img/photo_4934198068081528287_y.jpg', heroImg: 'img/IMG_9210.PNG', kicker: 'Mundo Dama · Perfumería', title: 'Tu perfume te está buscando.', cta: 'Ver perfumes' },
+      caballero: { label: 'Caballero', sub: 'Estilo para él', card: 'img/photo_4934198068081528274_y.jpg', heroImg: 'img/photo_4934198068081528271_y.jpg', kicker: 'Mundo Caballero · Perfumería', title: 'Su estilo empieza por el perfume.', cta: 'Ver perfumes' },
+      nino: { label: 'Niños', sub: 'Los peques de la casa', card: 'img/photo_4934198068081528281_y.jpg', heroImg: 'img/photo_4934198068081528280_y.jpg', kicker: 'Mundo Niños · Perfumería', title: 'Su primera colonia se elige con amor.', cta: 'Ver colonias' }
+    };
+  }
+  ropaW(w) {
+    if (w === 'caballero') return [
+      { slug: 'polo-blanco-v', cat: 'Polos', name: 'Polo Blanco Cuello V', price: 18, pres: 'Tallas S–XL', tagline: 'Limpio, fresco y con detalle', file: 'img/photo_4934198068081528271_y.jpg' },
+      { slug: 'polo-beige', cat: 'Polos', name: 'Polo Beige Clásico', price: 18, pres: 'Tallas S–XL', tagline: 'El básico que viste solo', file: 'img/photo_4934198068081528274_y.jpg' },
+      { slug: 'polo-rayas-lino', cat: 'Polos', name: 'Polo Rayas + Pantalón Lino', price: 28, pres: 'Conjunto S–L', tagline: 'Caribe con estilo', file: 'img/photo_4934198068081528277_y.jpg' },
+      { slug: 'camisa-verde', cat: 'Camisas', name: 'Camisa Verde Oliva', price: 26, pres: 'Tallas S–XL', tagline: 'Con lino blanco: infalible', file: 'img/photo_4934198068081528276_y.jpg' },
+      { slug: 'camisa-rayas', cat: 'Camisas', name: 'Camisa Rayas Oversize', price: 24, pres: 'Tallas S–XL', tagline: 'Abierta sobre negro, actitud lista', file: 'img/photo_4934198068081528275_y.jpg' },
+      { slug: 'tee-oversize-f', cat: 'Camisetas', name: 'Camiseta Oversize Fashion', price: 15, pres: 'Tallas S–XL', tagline: 'Street de estudio', file: 'img/photo_4934198068081528272_y.jpg' },
+      { slug: 'tank-street', cat: 'Camisetas', name: 'Camiseta Sin Mangas', price: 14, pres: 'Tallas S–XL', tagline: 'Para brazos que entrenan', file: 'img/photo_4934198068081528270_y.jpg' },
+      { slug: 'bomber-negra-c', cat: 'Chaquetas', name: 'Bomber Negra', price: 32, pres: 'Tallas S–XL', tagline: 'La tercera pieza que cambia todo', file: 'img/photo_4934198068081528273_y.jpg' }];
+    if (w === 'nino') return [
+      { slug: 'tee-nyc', cat: 'Camisetas', name: 'Camiseta NYC Oversize', price: 12, pres: '6–14 años', tagline: 'Street desde chiquito', file: 'img/photo_4934198068081528278_y.jpg' },
+      { slug: 'tee-chaos', cat: 'Camisetas', name: 'Camiseta Chaos', price: 12, pres: '6–14 años', tagline: 'Con jean negro: combo ganador', file: 'img/photo_4934198068081528279_y.jpg' },
+      { slug: 'tee-navy', cat: 'Camisetas', name: 'Camiseta Navy Street', price: 12, pres: '6–14 años', tagline: 'Azul que aguanta el recreo', file: 'img/photo_4934198068081528280_y.jpg' },
+      { slug: 'tee-official', cat: 'Conjuntos', name: 'Camiseta Official + Jean', price: 22, pres: 'Conjunto 6–14', tagline: 'Listo para la foto', file: 'img/photo_4934198068081528281_y.jpg' }];
+    return [
+      { slug: 'top-rayas', cat: 'Tops', name: 'Top Canalé Rayas', price: 16, pres: 'Tallas XS–L', tagline: 'Amarillo que levanta el ánimo', file: 'img/photo_4934198068081528284_y.jpg' },
+      { slug: 'vestido-midi-negro', cat: 'Vestidos', name: 'Vestido Midi Off-Shoulder', price: 38, pres: 'Tallas XS–L', tagline: 'El negro que nunca falla', file: 'img/photo_4934198068081528286_y.jpg' },
+      { slug: 'body-choco', cat: 'Tops', name: 'Body Asimétrico Chocolate', price: 22, pres: 'Tallas XS–L', tagline: 'Un solo hombro, toda la actitud', file: 'img/photo_4934198068081528287_y.jpg' },
+      { slug: 'top-peplum', cat: 'Tops', name: 'Top Peplum Chocolate', price: 20, pres: 'Tallas XS–L', tagline: 'Con jean wide leg: perfección', file: 'img/IMG_9211.PNG' },
+      { slug: 'chaleco-denim', cat: 'Conjuntos', name: 'Chaleco Denim + Wide Leg', price: 34, pres: 'Tallas XS–L', tagline: 'Vintage wash, actitud 70s', file: 'img/photo_4934198068081528288_y.jpg' },
+      { slug: 'jean-vintage', cat: 'Jeans', name: 'Jean Wide Leg Vintage', price: 28, pres: 'Tallas 34–42', tagline: 'El lavado del momento', file: 'img/photo_4934198068081528291_y.jpg' }];
+  }
+  ropa() {
+    return [
+      {slug:'vestido-lino', cat:'Vestidos', name:'Vestido Off-Shoulder Lino', price:45, pres:'Tallas XS–L', tagline:'Hombros descubiertos, caída perfecta', pid:'photo-1609505848912-b7c3b8b4beda', ph:'Raamin ka', hh:'raaminka'},
+      {slug:'vestido-rojo', cat:'Vestidos', name:'Vestido Rojo Satinado', price:52, pres:'Tallas XS–L', tagline:'El de las noches importantes', pid:'photo-1646526803575-5c3759f2b932', ph:'Jabari Timothy', hh:'jabarib'},
+      {slug:'vestido-negro', cat:'Vestidos', name:'Vestido Negro Clásico', price:48, pres:'Tallas XS–XL', tagline:'El little black dress que no falla', pid:'photo-1736597817281-4f54bb9c246d', ph:'Lua Valentia', hh:'luavalentia'},
+      {slug:'blazer-blanco', cat:'Blazers', name:'Blazer Blanco Estructurado', price:56, pres:'Tallas S–L', tagline:'Poder y limpieza en una pieza', pid:'photo-1571513722275-4b41940f54b8', ph:'Aiony Haust', hh:'aiony'},
+      {slug:'blazer-perlas', cat:'Blazers', name:'Blazer Negro Entallado', price:54, pres:'Tallas S–L', tagline:'De la oficina al after sin escala', pid:'photo-1612731486606-2614b4d74921', ph:'Dominik kielbasa', hh:'dbasa'},
+      {slug:'trench-gris', cat:'Abrigos', name:'Trench Gris Oversize', price:68, pres:'Talla única', tagline:'Dramático, cómodo, inevitable', pid:'photo-1601762603339-fd61e28b698a', ph:'Alireza Dolati', hh:'alirezadolati'},
+      {slug:'abrigo-crema', cat:'Abrigos', name:'Abrigo Crema Largo', price:74, pres:'Tallas S–M', tagline:'Elegancia de clima frío (o de mall)', pid:'photo-1632149877166-f75d49000351', ph:'Reza Delkhosh', hh:'reza_delkhosh_'},
+      {slug:'blusa-blanca', cat:'Blusas', name:'Blusa Blanca Romántica', price:32, pres:'Tallas XS–L', tagline:'Básico elevado, mangas con historia', pid:'photo-1603132789551-47b97377046e', ph:'Nemanja Stevic', hh:'nsdesignpotography'},
+      {slug:'camisa-editorial', cat:'Blusas', name:'Camisa Oversize Editorial', price:36, pres:'Tallas S–XL', tagline:'La camisa que se lleva como quieras', pid:'photo-1574015974293-817f0ebebb74', ph:'Ayo Ogunseinde', hh:'armedshutter'}
+    ];
+  }
+  accsW(w) {
+    if (w === 'caballero') return [
+      {slug:'reloj-minimal', cat:'Relojes', name:'Reloj Minimal Cuero', price:38, pres:'Correa de cuero', tagline:'El detalle que cierra el look', pid:'photo-1524592094714-0f0654e20314', ph:'Luke Chesser', hh:'lukechesser'},
+      {slug:'lentes-aviador', cat:'Lentes', name:'Lentes Aviador', price:26, pres:'Protección UV400', tagline:'Clásicos que no fallan', pid:'photo-1572635196237-14b3f281503f', ph:'Giorgio Trovato', hh:'giorgiotrovato'},
+      {slug:'billetera-cuero', cat:'Marroquinería', name:'Billetera de Cuero', price:22, pres:'Cuero genuino', tagline:'Sobria, delgada, para siempre', pid:'photo-1627123424574-724758594e93', ph:'Andrey Haimin', hh:'nomadphotoreference'},
+      {slug:'gorra-negra', cat:'Gorras', name:'Gorra Negra Street', price:15, pres:'Ajustable', tagline:'El básico del fin de semana', px:'12683305', ph:'Mahdi Bafande', phref:'https://www.pexels.com/photo/man-in-black-cap-wearing-sunglasses-12683305/'}];
+    if (w === 'nino') return [
+      {slug:'mochila-street', cat:'Mochilas', name:'Mochila Street Kids', price:24, pres:'Ligera y resistente', tagline:'Aguanta el cole y el parque', pid:'photo-1553062407-98eeb64c6a62', ph:'Kelly Sikkema', hh:'kellysikkema'},
+      {slug:'gorra-mini', cat:'Gorras', name:'Gorra Mini MB', price:10, pres:'Ajustable 4–12 años', tagline:'Como la de papá, pero mejor'},
+      {slug:'termo-escolar', cat:'Escolar', name:'Termo Escolar', price:12, pres:'350 ml, antigoteo', tagline:'Hidratación a prueba de recreo'}];
+    return this.accs();
+  }
+  accs() {
+    return [
+      {slug:'cartera-rubi', cat:'Bolsos', name:'Cartera Rubí Charol', price:26, pres:'Asa corta', tagline:'El toque rojo que pide el look', file:'img/IMG_7684.JPG'},
+      {slug:'slingback-rojo', cat:'Calzado', name:'Slingback Rojo Cereza', price:30, pres:'Tallas 35–40', tagline:'Tacón cómodo, puntera de revista', file:'img/photo_4934198068081528283_y.jpg'},
+      {slug:'collar-dorado', cat:'Joyería', name:'Collar Minimal Dorado', price:24, pres:'Baño de oro 18k', tagline:'El brillo justo, todos los días', pid:'photo-1648065460033-5c59f2ef1d97', ph:'Andrea Nieblas', hh:'andalenie'},
+      {slug:'bolso-estructurado', cat:'Bolsos', name:'Bolso Estructurado Camel', price:58, pres:'Asa corta + bandolera', tagline:'Cabe tu vida, combina con todo', pid:'photo-1764179690237-6c9a7a48406c', ph:'amin naderloei', hh:'aminnaderloei'},
+      {slug:'lentes-sol', cat:'Lentes', name:'Lentes de Sol Redondos', price:28, pres:'Protección UV400', tagline:'Misterio instantáneo', pid:'photo-1529139574466-a303027c1d8b', ph:'Katsiaryna Endruszkiewicz', hh:'endka_1'},
+      {slug:'sombrero-sol', cat:'Sombreros', name:'Sombrero de Sol Ala Ancha', price:22, pres:'Talla única', tagline:'Playa, ciudad o feria: siempre suma', pid:'photo-1617922001439-4a2e6562f328', ph:'Corey Saldana', hh:'corey_saldana'},
+      {slug:'tote-mb', cat:'Bolsos', name:'Tote Mujer Bonita', price:15, pres:'Lona reforzada', tagline:'El shopper de la casa, edición 1', pid:'photo-1483985988355-763728e1935b', ph:'freestocks', hh:'freestocks'},
+      {slug:'pashmina', cat:'Pañuelos', name:'Pashmina Ligera', price:18, pres:'180 × 70 cm', tagline:'Del aire acondicionado al look total', pid:'photo-1513094735237-8f2714d57c13', ph:'Jon Ly', hh:'itsjonly'}
+    ];
+  }
+  packs() {
+    return { yara:'mb-22-yara', khamrah:'mb-23-khamrah', 'club-de-nuit-woman':'mb-24-cdn-untold', 'coco-mademoiselle':'mb-25-coco', si:'mb-26-si', 'good-girl':'mb-27-good-girl',
+      'miss-dior':'mb-28-miss-dior', libre:'mb-29-libre', 'bright-crystal':'mb-30-bright-crystal', 'light-blue':'mb-31-light-blue',
+      sauvage:'mb-32-sauvage', 'bleu-chanel':'mb-33-bleu', 'cdn-intense':'mb-34-cdn-intense', 'acqua-gio':'mb-36-acqua', eros:'mb-37-eros',
+      'para-mi-bebe':'mb-38-para-mi-bebe', 'mb-kids-mist':'mb-41-body-mist' };
+  }
+  fmt(usd) {
+    const c = this.props.currency ?? 'Ambas';
+    const bs = 'Bs. ' + (usd * 168).toLocaleString('es-VE');
+    if (c === 'Bs.') return bs;
+    if (c === 'Ambas') return '$' + usd + ' · ' + bs;
+    return '$' + usd;
+  }
+  go(screen, extra) { this.setState({ screen, cartOpen: false, quickSlug: null, megaOpen: false, megaWorld: null, branchMenuOpen: false, ...extra }); window.scrollTo(0, 0); }
+  enter(k, screen, extra) { this.setState({ world: k, screen: screen || 'home', megaWorld: null, cartOpen: false, quickSlug: null, ropaCat: 'Todas', famFilter: 'Todas', brandFilter: 'Todas', priceMin: 0, priceMax: 0, quizStep: 0, quizAnswers: [], ...(extra || {}) }); window.scrollTo(0, 0); }
+  u(p) { return (window.MB_IMG && window.MB_IMG[p]) || './' + p; }
+  famImg(f) { const m = { Fresco: 'mb-08-fresco', Floral: 'mb-09-floral', 'Ámbar': 'mb-10-ambar', Amaderado: 'mb-11-amaderado' }; return m[f] ? this.u('img/' + m[f] + '.jpg') : ''; }
+  componentDidUpdate() {
+    const s = this.state; if (s.screen !== 'product') return;
+    const slug = s.slug; if ((s.videos || {})[slug] || this._vidBusy === slug) return;
+    this._vidBusy = slug; this.makeVideo(slug).catch(e => this.setState({ videoStatus: 'No disponible en este navegador' }));
+  }
+  async makeVideo(slug) {
+    const all = [].concat(this.data(), this.dataM(), this.dataK()); const p = all.find(x => x.slug === slug); if (!p) return;
+    const PK = this.packs(); const src = PK[slug] ? this.u('img/' + PK[slug] + '.jpg') : null; if (!src) { this.setState({ videoStatus: 'Sin packshot para este producto' }); return; }
+    if (typeof MediaRecorder === 'undefined') throw new Error('no MediaRecorder');
+    const img = await new Promise((res, rej) => { const i = new Image(); i.crossOrigin = 'anonymous'; i.onload = () => res(i); i.onerror = rej; i.src = src; });
+    const W = 720, H = 900, DUR = 6; const c = document.createElement('canvas'); c.width = W; c.height = H; const x = c.getContext('2d');
+    const stream = c.captureStream(30);
+    const mime = ['video/webm;codecs=vp9', 'video/webm;codecs=vp8', 'video/webm', 'video/mp4'].find(m => MediaRecorder.isTypeSupported(m));
+    const rec = new MediaRecorder(stream, { mimeType: mime, videoBitsPerSecond: 2500000 }); const chunks = []; rec.ondataavailable = e => e.data.size && chunks.push(e.data);
+    const done = new Promise(r => rec.onstop = r); rec.start(200);
+    const dark = p.brand === 'Dior' || p.brand === 'Chanel' && slug === 'bleu-chanel' || ['sauvage', 'bleu-chanel', 'cdn-intense', 'acqua-gio', 'eros'].includes(slug);
+    const bg = dark ? '#131313' : '#f6f1ee', acc = dark ? '#c98a3d' : '#b3121b';
+    const t0 = performance.now();
+    await new Promise(res => { const frame = () => { const t = (performance.now() - t0) / 1000; if (t >= DUR) return res(); const q = t / DUR;
+      x.fillStyle = bg; x.fillRect(0, 0, W, H);
+      const z = 1.05 + 0.18 * q; const ih = H * z, iw = img.width * (H / img.height) * z; x.drawImage(img, (W - iw) / 2 - 40 * q, (H - ih) / 2, iw, ih);
+      const g = x.createLinearGradient(0, H * 0.55, 0, H); g.addColorStop(0, 'rgba(20,16,17,0)'); g.addColorStop(1, 'rgba(20,16,17,0.78)'); x.fillStyle = g; x.fillRect(0, 0, W, H);
+      const a = (from) => Math.min(1, Math.max(0, (t - from) / 0.8));
+      x.fillStyle = '#f6f1ee'; x.globalAlpha = a(0.6); x.font = '500 14px Figtree, sans-serif'; x.fillText((p.brand + '  ·  ' + (p.ml >= 200 ? 'Colonia' : 'Eau de Parfum') + '  ·  ' + p.ml + ' ml').toUpperCase(), 48, H - 150);
+      x.globalAlpha = a(1.2); x.font = '64px Marcellus, serif'; x.fillText(p.name, 48, H - 84);
+      x.globalAlpha = a(1.9); x.font = '300 17px Figtree, sans-serif'; x.fillText(p.tagline, 48, H - 48);
+      x.globalAlpha = a(3.4); x.fillStyle = acc; x.fillRect(W - 216, 48, 168, 44); x.fillStyle = '#f6f1ee'; x.font = '600 13px Figtree, sans-serif'; x.fillText('MUJER BONITA', W - 196, 76);
+      x.globalAlpha = 1; requestAnimationFrame(frame); }; frame(); });
+    rec.stop(); await done;
+    const url = URL.createObjectURL(new Blob(chunks, { type: mime }));
+    this.setState(st => ({ videos: { ...(st.videos || {}), [slug]: url }, videoStatus: '' }));
+    this._vidBusy = null;
+  }
+  componentDidMount() { if (!window.MB_IMG) { let n = 0; const tm = setInterval(() => { if (window.MB_IMG || ++n > 40) { clearInterval(tm); this.forceUpdate(); } }, 150); } }
+  addToCart(p, fromBranch) {
+    const here = this.state.branch;
+    if (!fromBranch && !this.inStock(p.slug, here)) {
+      const alt = this.branches().find(b => this.inStock(p.slug, b.k));
+      if (!alt) return;
+      this.setState({ remoteNotice: { p, branch: alt.k, branchName: alt.name, prodName: p.name, eta: alt.eta, feeLabel: this.fmt(alt.fee) }, quickSlug: null });
+      return;
+    }
+    const src = fromBranch || here;
+    const b = this.branches().find(x => x.k === src);
+    this.setState(s => {
+      const cart = s.cart.slice();
+      const i = cart.findIndex(x => x.slug === p.slug);
+      if (i >= 0) cart[i] = { ...cart[i], qty: cart[i].qty + 1 };
+      else cart.push({ slug: p.slug, brand: p.brand || 'Mujer Bonita', name: p.name, pres: p.pres || ('EDP · ' + p.ml + ' ml'), price: p.price, qty: 1, from: src, remote: src !== here, branchName: b.name, eta: b.eta, fee: src !== here ? b.fee : 0 });
+      return { cart, cartOpen: true, quickSlug: null, remoteNotice: null };
+    });
+  }
+  quiz(wk) {
+    const styles = wk === 'caballero' ? [
+        { label: 'Fresco y limpio', hint: 'Cítricos, acuáticos, día a día', v: 'Fresco' },
+        { label: 'Amaderado elegante', hint: 'Maderas, sobrio, oficina', v: 'Amaderado' },
+        { label: 'Dulce e intenso', hint: 'Vainilla, tabaco, noche', v: 'Ámbar' }]
+      : wk === 'nino' ? [
+        { label: 'Suave clásico', hint: 'Colonia de bebé de siempre', v: 'Suave' },
+        { label: 'Frutal divertido', hint: 'Fresa, mandarina, cole', v: 'Fresco' }]
+      : [
+        { label: 'Fresco y ligero', hint: 'Cítricos, limpio, brisa', v: 'Fresco' },
+        { label: 'Floral y romántico', hint: 'Rosas, jazmín, femenino', v: 'Floral' },
+        { label: 'Dulce e intenso', hint: 'Vainilla, especias, estela', v: 'Ámbar' }];
+    return [
+      { title: '¿Cuándo lo vas a usar?', options: [
+        { label: 'De día', hint: 'Trabajo, clases, diligencias', v: 'dia' },
+        { label: 'De noche', hint: 'Salidas, cenas, fiestas', v: 'noche' },
+        { label: 'Para todo', hint: 'Uno que sirva siempre', v: 'ambos' }]},
+      { title: '¿Qué estilo buscas?', options: styles },
+      { title: '¿Cuál es tu presupuesto?', options: [
+        { label: 'Hasta $60', hint: 'Que huela caro sin serlo', v: 60 },
+        { label: '$60 – $120', hint: 'Punto medio perfecto', v: 120 },
+        { label: 'Sin límite', hint: 'Voy por el original de lujo', v: 9999 }]}
+    ];
+  }
+  renderVals() {
+    const s = this.state;
+    const W = this.worlds(); const wk = s.world || 'dama'; const wd = W[wk];
+    const all = wk === 'caballero' ? this.dataM() : wk === 'nino' ? this.dataK() : this.data();
+    const brands = ['Todas', ...Array.from(new Set(all.map(p => p.brand)))];
+    const families = ['Todas', ...Array.from(new Set(all.map(p => p.family)))];
+    const BR = this.branches(); const here = s.branch; const hereB = BR.find(b => b.k === here);
+    const stockDeco = p => { const ok = this.inStock(p.slug, here); return { inStockHere: ok, badge: ok ? p.badge : 'Agotado aquí' }; };
+    const PK = this.packs();
+    const deco = p => { const im = this.imgs()[p.slug] || [];
+      return { ...p, ...stockDeco(p), priceLabel: this.fmt(p.price), presentation: (wk === 'nino' ? 'Colonia · ' : 'Eau de Parfum · ') + p.ml + ' ml',
+      img: PK[p.slug] ? this.u('img/' + PK[p.slug] + '.jpg') : (p.img || (im[0] ? 'https://images.unsplash.com/' + im[0] + '?q=75&w=1600&auto=format&fit=crop' : '')),
+      credit: PK[p.slug] ? '' : (p.credit || (im[0] && im[1] ? 'Photo by ' + im[1] + ' on Unsplash' : '')),
+      chref: PK[p.slug] ? '' : (p.chref || (im[2] ? 'https://unsplash.com/@' + im[2] : '')),
+      open: e => { e && e.preventDefault && e.preventDefault(); this.go('product', { slug: p.slug }); },
+      openBtn: () => this.go('product', { slug: p.slug }),
+      quick: () => this.setState({ quickSlug: p.slug }),
+      add: () => this.addToCart(p) }; };
+    const catalog = all.filter(p => (s.famFilter === 'Todas' || p.family === s.famFilter) && (s.brandFilter === 'Todas' || p.brand === s.brandFilter) && (!s.priceMax || p.price <= s.priceMax) && (!s.priceMin || p.price > s.priceMin)).map(deco);
+    const perfProd = all.find(p => p.slug === s.slug);
+    const dep = r => ({ ...r, brand: 'Mujer Bonita', family: r.cat, ...stockDeco({ ...r, badge: r.badge || 'Nuevo' }), story: r.tagline + '.', presentation: r.pres, priceLabel: this.fmt(r.price),
+      img: r.file ? this.u(r.file) : r.px ? 'https://images.pexels.com/photos/' + r.px + '/pexels-photo-' + r.px + '.jpeg?auto=compress&cs=tinysrgb&w=1200' : r.pid ? 'https://images.unsplash.com/' + r.pid + '?q=75&w=1200&auto=format&fit=crop' : '',
+      credit: r.px && r.ph ? 'Photo by ' + r.ph + ' on Pexels' : r.ph ? 'Photo by ' + r.ph + ' on Unsplash' : '', chref: r.phref || (r.hh ? 'https://unsplash.com/@' + r.hh : ''),
+      quick: () => this.setState({ quickSlug: r.slug }), add: () => this.addToCart(r),
+      open: e => { e && e.preventDefault && e.preventDefault(); this.go('product', { slug: r.slug }); },
+      openBtn: () => this.go('product', { slug: r.slug }) });
+    const ropaAll = (wk === 'dama' ? this.ropaW('dama').concat(this.ropa()) : this.ropaW(wk)).map(dep), accAll = this.accsW(wk).map(dep);
+    const ropaCats = ['Todas', ...Array.from(new Set(ropaAll.map(r => r.cat)))];
+    const depProd = ropaAll.concat(accAll).find(r => r.slug === s.slug);
+    const prod = perfProd ? deco(perfProd) : (depProd || deco(all[0]));
+    const prodIsRopa = !perfProd && depProd && ropaAll.some(r => r.slug === s.slug);
+    const qPerf = all.find(p => p.slug === s.quickSlug);
+    const quickProd = qPerf ? deco(qPerf) : (ropaAll.concat(accAll).find(r => r.slug === s.quickSlug) || deco(all[0]));
+    const chip = (name, active, select) => ({ name, select,
+      bg: active ? '#241f21' : 'transparent', fg: active ? '#f6f1ee' : '#241f21',
+      bd: active ? '#241f21' : 'rgba(36,31,33,0.3)' });
+    const famDescs = { Fresco: 'Cítricos, limpio y luminoso. Para el calor de todos los días.', Floral: 'De la rosa al jazmín. Románticos y con carácter.', 'Ámbar': 'Vainilla, especias y noche. Los que dejan estela.', Amaderado: 'Maderas, sobriedad y presencia. Elegancia sin esfuerzo.', Suave: 'Delicados y sin alcohol agresivo. Para piel sensible.' };
+    const MINQ = this.props.minQty ?? 12; const qty = s.cart.reduce((a, it) => a + it.qty, 0);
+    const transfer = s.cart.reduce((a, it) => a + (it.fee || 0), 0);
+    const cart = s.cart.map(it => ({ ...it, initial: it.name[0], presentation: it.pres, lineLabel: this.fmt(it.price * it.qty), feeLabel: this.fmt(it.fee || 0),
+      inc: () => this.setState(st => ({ cart: st.cart.map(x => x.slug === it.slug ? { ...x, qty: x.qty + 1 } : x) })),
+      dec: () => this.setState(st => ({ cart: st.cart.map(x => x.slug === it.slug ? { ...x, qty: Math.max(1, x.qty - 1) } : x) })),
+      remove: e => { e.preventDefault(); this.setState(st => ({ cart: st.cart.filter(x => x.slug !== it.slug) })); } }));
+    const total = s.cart.reduce((a, it) => a + it.price * it.qty, 0);
+    const qz = this.quiz(wk);
+    const quizDone = s.quizStep >= 3;
+    let quizResult = null, quizReason = '';
+    if (quizDone) {
+      const [when, fam, budget] = s.quizAnswers;
+      let pool = all.filter(p => p.family === fam && p.price <= budget);
+      if (!pool.length) pool = all.filter(p => p.price <= budget);
+      if (!pool.length) pool = all.slice();
+      pool.sort((a, b) => b.price - a.price);
+      quizResult = deco(pool[0]);
+      quizReason = when === 'noche' ? 'Perfecto para la noche: intensidad y estela aseguradas.' : when === 'dia' ? 'Ideal para el día: agradable de cerca, nunca pesado.' : 'Versátil: te sirve de día y rinde de noche.';
+    }
+    const navC = on => on ? '#241f21' : 'rgba(36,31,33,0.55)';
+    const navB = on => on ? '#9e3450' : 'transparent';
+    const LBL = { dama: 'Dama', caballero: 'Caballero', nino: 'Niños' };
+    const WK = ['dama', 'caballero', 'nino'];
+    const perfOf = k => k === 'caballero' ? this.dataM() : k === 'nino' ? this.dataK() : this.data();
+    const ropaOf = k => k === 'dama' ? this.ropaW('dama').concat(this.ropa()) : this.ropaW(k);
+    const uq = a => Array.from(new Set(a));
+    const mw = s.megaWorld;
+    const lk = (name, k, scr, extra) => ({ name, go: e => { e.preventDefault(); this.enter(k, scr, extra); } });
+    const megaCols = mw ? [
+      { title: 'Destacados', links: [lk('Inicio ' + LBL[mw], mw, 'home'), lk('Todos los perfumes', mw, 'perfumes'), lk('Encuentra tu perfume', mw, 'quiz')] },
+      { title: 'Perfumes', links: uq(perfOf(mw).map(p => p.brand)).map(b => lk(b, mw, 'perfumes', { brandFilter: b })) },
+      { title: 'Ropa', links: [lk('Ver toda la ropa', mw, 'ropa')].concat(uq(ropaOf(mw).map(r => r.cat)).map(c => lk(c, mw, 'ropa', { ropaCat: c }))) },
+      { title: 'Accesorios', links: [lk('Ver todos', mw, 'accs')].concat(uq(this.accsW(mw).map(a => a.cat)).map(c => lk(c, mw, 'accs'))) }
+    ] : [];
+    const pk = mw || 'dama';
+    const lt = s.landingTab;
+    return {
+      isLanding: s.screen === 'landing',
+      goLanding: e => { e.preventDefault(); this.setState({ screen: 'landing', megaWorld: null, cartOpen: false }); window.scrollTo(0, 0); },
+      navWorlds: WK.map(k => { const on = s.screen !== 'landing' && s.world === k; return { label: LBL[k], go: e => { e.preventDefault(); this.enter(k, 'home'); }, hover: () => { if (s.megaWorld !== k) this.setState({ megaWorld: k }); }, color: on || mw === k ? '#241f21' : 'rgba(36,31,33,0.62)', border: on ? '#b3121b' : (mw === k ? 'rgba(36,31,33,0.35)' : 'transparent') }; }),
+      megaCols, megaPromo: { key: pk, label: LBL[pk], img: this.u(W[pk].card), go: () => this.enter(pk, 'home') },
+      spot: (() => { const p = this.data()[0]; return { ...deco(p), open: e => { e && e.preventDefault && e.preventDefault(); this.enter('dama', 'product', { slug: p.slug }); }, add: () => this.addToCart(p) }; })(),
+      spotNotes: (() => { const p = this.data()[0]; return [{ label: 'Salida', text: p.top, w: '55%' }, { label: 'Corazón', text: p.heart, w: '78%' }, { label: 'Fondo', text: p.base, w: '100%' }]; })(),
+      giftTiers: [
+        { kicker: 'Detalle con cariño', title: 'Hasta $50', desc: 'Lattafa y Armaf: huelen a mucho más de lo que cuestan.', max: 50 },
+        { kicker: 'El regalo seguro', title: '$50 – $120', desc: 'Versace, D&G y los frescos de diseñador que nunca fallan.', max: 120, min: 50 },
+        { kicker: 'Para impresionar', title: 'Lujo', desc: 'Chanel, Dior, YSL. El original que se recuerda.', min: 120 }
+      ].map(g => { const pool = this.data().filter(p => (!g.max || p.price <= g.max) && (!g.min || p.price > g.min)); return { ...g, count: pool.length, go: () => this.enter('dama', 'perfumes', { priceMin: g.min || 0, priceMax: g.max || 0 }) }; }),
+      priceChipOn: !!(s.priceMax || s.priceMin),
+      priceChipLabel: s.priceMax && s.priceMin ? ('$' + s.priceMin + ' – $' + s.priceMax) : s.priceMax ? ('Hasta $' + s.priceMax) : ('Más de $' + s.priceMin),
+      clearPrice: () => this.setState({ priceMin: 0, priceMax: 0 }),
+      ritual: [
+        { n: '01', title: 'Elige tu mundo', desc: 'Dama, caballero o niños. Cada uno con su propio catálogo, estilo y ritmo.', cta: 'Ver mundos', go: () => window.scrollTo({ top: 700, behavior: 'smooth' }) },
+        { n: '02', title: 'Encuentra tu perfume', desc: 'Tres preguntas, treinta segundos, una recomendación exacta. O explora por familia olfativa.', cta: 'Hacer el quiz', go: () => this.go('quiz', { quizStep: 0, quizAnswers: [] }) },
+        { n: '03', title: 'Recíbelo donde estés', desc: 'Retiro en tienda, delivery el mismo día en Caracas o envío nacional en 24–72 h.', cta: 'Ver sucursales', go: () => this.setState({ branchMenuOpen: true }) }
+      ],
+      branchCards: BR.map(b => ({ ...b, mark: b.k === here ? 'Tu sucursal' : 'Sucursal', cta: b.k === here ? 'Comprando aquí' : 'Comprar desde aquí', bg: b.k === here ? '#241f21' : '#fdfbf9', fg: b.k === here ? '#f6f1ee' : '#241f21', bd: b.k === here ? '#241f21' : 'rgba(36,31,33,0.15)', pick: () => this.setState({ branch: b.k }) })),
+      reviews: [
+        { text: 'Pedí el Yara desde Valencia y llegó en dos días, sellado y con muestra. Huele igualito al de la tienda.', who: 'María Fernanda G.', where: 'Valencia' },
+        { text: 'El quiz me recomendó Bleu de Chanel para mi esposo. Acertó. Ya no quiere usar otro.', who: 'Andreína R.', where: 'Caracas' },
+        { text: 'Compré la colonia de mi hijo y una camiseta de la línea kids. Calidad top y atención por WhatsApp de diez.', who: 'Luis E. M.', where: 'Maracaibo' }
+      ],
+      community: ['img/photo_4934198068081528284_y.jpg', 'img/photo_4934198068081528271_y.jpg', 'img/photo_4934198068081528286_y.jpg', 'img/photo_4934198068081528281_y.jpg', 'img/photo_4934198068081528288_y.jpg', 'img/photo_4934198068081528276_y.jpg'].map((p, i) => ({ i, img: this.u(p), go: () => this.enter(i === 1 || i === 5 ? 'caballero' : i === 3 ? 'nino' : 'dama', 'ropa') })),
+      goDamaHome: e => { e.preventDefault(); this.enter('dama', 'home'); },
+      goCabHome: e => { e.preventDefault(); this.enter('caballero', 'home'); },
+      goKidHome: e => { e.preventDefault(); this.enter('nino', 'home'); },
+      goDamaRopa: () => this.enter('dama', 'ropa'), goDamaAccs: () => this.enter('dama', 'accs'),
+      tileDamaImg: this.u('img/mb-02-campana-dama.jpg'), tileCabImg: this.u('img/mb-03-campana-caballero.jpg'), tileKidImg: this.u('img/mb-04-campana-ninos.jpg'),
+      ropaLandImg: this.u('img/mb-05-ropa.jpg'), accLandImg: this.u('img/mb-06-accesorios.jpg'),
+      landHeroImg: this.u('img/mb-01-hero-general.jpg'), quizImg: this.u('img/mb-07-quiz.jpg'), cabHeroImg: this.u('img/mb-14-hero-caballero.jpg'),
+      landingPromises: ['Perfumes 100% originales', 'Envíos 24–72 h a toda Venezuela', 'Pago móvil, Zelle, tarjeta o efectivo', 'Muestra de regalo en cada pedido'].map(t => ({ t })),
+      landingBrands: ['Lattafa', 'Chanel', 'Armaf', 'Giorgio Armani', 'Carolina Herrera', 'Dior', 'Yves Saint Laurent', 'Versace', 'Dolce & Gabbana', 'Nenuco'].concat(['Lattafa', 'Chanel', 'Armaf', 'Giorgio Armani', 'Carolina Herrera', 'Dior', 'Yves Saint Laurent', 'Versace', 'Dolce & Gabbana', 'Nenuco']).flatMap(b => [{ t: b }, { t: '·' }]),
+      landingFamilies: [
+        { key: 'fresco', name: 'Fresco', desc: 'Cítricos, limpio y luminoso.', pid: 'photo-1763987300634-7b0822cbf390', credit: 'Photo by majed swan on Unsplash', href: 'https://unsplash.com/@majedswan', fam: 'Fresco' },
+        { key: 'floral', name: 'Floral', desc: 'De la rosa al jazmín.', pid: 'photo-1708265500552-c256df13d3ca', credit: 'Photo by Laura Chouette on Unsplash', href: 'https://unsplash.com/@laurachouette', fam: 'Floral' },
+        { key: 'ambar', name: 'Ámbar', desc: 'Vainilla, especias y noche.', pid: 'photo-1610113909607-2110f8401d92', credit: 'Photo by Laura Chouette on Unsplash', href: 'https://unsplash.com/@laurachouette', fam: 'Ámbar' },
+        { key: 'amaderado', name: 'Amaderado', desc: 'Maderas, sobriedad y presencia.', pid: 'photo-1631701464241-99f7f0ed6f8f', credit: 'Photo by Laura Chouette on Unsplash', href: 'https://unsplash.com/@laurachouette', fam: 'Amaderado', world: 'caballero' }
+      ].map(f => ({ ...f, credit: '', img: this.u('img/mb-' + ({fresco:'08-fresco',floral:'09-floral',ambar:'10-ambar',amaderado:'11-amaderado'})[f.key] + '.jpg'), go: () => this.enter(f.world || 'dama', 'perfumes', { famFilter: f.fam }) })),
+      landingTabs: WK.map(k => ({ name: LBL[k], select: () => this.setState({ landingTab: k }), bg: lt === k ? '#241f21' : 'transparent', fg: lt === k ? '#f6f1ee' : '#241f21', bd: lt === k ? '#241f21' : 'rgba(36,31,33,0.3)' })),
+      landingProducts: perfOf(lt).slice(0, 4).map(p => ({ ...deco(p), open: e => { e && e.preventDefault && e.preventDefault(); this.enter(lt, 'product', { slug: p.slug }); }, add: () => this.addToCart(p) })),
+      kidHeroImg: this.u('img/mb-18-hero-ninos.jpg'),
+      showAnnouncement: this.props.showAnnouncement ?? true,
+      isHomeDama: s.screen === 'home' && wk === 'dama',
+      isHomeCab: s.screen === 'home' && wk === 'caballero',
+      isHomeKid: s.screen === 'home' && wk === 'nino',
+      cabMarquee: ['Dior', 'Chanel', 'Armaf', 'Lattafa', 'Armani', 'Versace', 'Dior', 'Chanel', 'Armaf', 'Lattafa', 'Armani', 'Versace'].map((t, i) => ({ t, c: i % 2 ? 'transparent' : '#efece6', s: i % 2 ? '1px rgba(239,236,230,0.5)' : '0' })),
+      cabRows: [
+        { num: '01', name: 'Perfumes', count: this.dataM().length + ' fragancias', go: () => this.go('perfumes') },
+        { num: '02', name: 'Ropa', count: this.ropaW('caballero').length + ' piezas', go: () => this.go('ropa') },
+        { num: '03', name: 'Accesorios', count: this.accsW('caballero').length + ' piezas', go: () => this.go('accs') }
+      ],
+      kidMarquee: ['Colonias suaves', '★', 'Ropa street', '★', 'Precios de recreo', '★', 'Envíos a todo el país', '★', 'Colonias suaves', '★', 'Ropa street', '★', 'Precios de recreo', '★', 'Envíos a todo el país', '★'].map(t => ({ t })),
+      kidRopaHome: ropaAll.slice(0, 2).map((r, i) => ({ ...r, tilt: i % 2 ? '2.5deg' : '-2.5deg' })),
+      cabOffer: { img: this.u('img/mb-15-casa-caballero.jpg'), code: 'CABALLERO50', go: () => this.go('perfumes') },
+      cabBest: (wk === 'caballero' ? [all[0], all[1], all[3]] : []).map((p, i) => ({ ...deco(p), rank: '0' + (i + 1) })),
+      cabNew: (wk === 'caballero' ? ropaAll.slice(4, 8) : []),
+      cabBannerNoche: this.u('img/mb-34-cdn-intense.jpg'),
+      cabPromises: [{ big: '100%', t: 'Perfumes originales, sellados y con garantía.' }, { big: '24–72 h', t: 'Envío a toda Venezuela o retiro en tienda.' }, { big: '$ · Bs.', t: 'Pago móvil, Zelle, tarjeta o efectivo.' }, { big: 'Cambio', t: 'Talla equivocada? La cambias en cualquier sucursal.' }],
+      kidPromoTees: (wk === 'nino' ? ropaAll.slice(0, 3) : []).map((r, i) => ({ ...r, tilt: ['-4deg', '2deg', '-2deg'][i] })),
+      kidBest: (wk === 'nino' ? [ropaAll[3], all[0], ropaAll[1], all[3]] : []).filter(Boolean).map((p, i) => ({ ...p, cat: p.cat || 'Colonias', rank: i + 1, rankBg: ['#ff5d5d', '#26b5a4', '#2d2440', '#ff5d5d'][i] })),
+      kidNew: (wk === 'nino' ? [ropaAll[2], accAll[0], ropaAll[0], ropaAll[3]] : []).filter(r => r && r.img),
+      kidMistImg: this.u('img/mb-41-body-mist.jpg'),
+      kidPromises: [{ big: 'Suaves', t: 'Colonias sin alcohol agresivo, aptas para piel sensible.', bg: '#26b5a4', fg: '#fff', tilt: '-1.5deg' }, { big: 'Aguantan', t: 'Ropa pensada para el recreo y la lavadora.', bg: '#ffd23f', fg: '#2d2440', tilt: '1.5deg' }, { big: '24–72 h', t: 'Envío a toda Venezuela o retiro en tienda.', bg: '#fff', fg: '#2d2440', tilt: '-1deg' }, { big: 'Cambios', t: 'Si creció antes de estrenar, lo cambiamos.', bg: '#ff5d5d', fg: '#fff', tilt: '1deg' }],
+      isHome: s.screen === 'home', isPerfumes: s.screen === 'perfumes', isProduct: s.screen === 'product', isQuiz: s.screen === 'quiz',
+      goHome: e => { e.preventDefault(); this.go('home'); },
+      goPerfumes: e => { e && e.preventDefault && e.preventDefault(); this.go('perfumes'); },
+      goQuiz: e => { e.preventDefault(); this.go('quiz', { quizStep: 0, quizAnswers: [] }); },
+      navHomeColor: navC(s.screen === 'home'), navHomeBorder: navB(s.screen === 'home'),
+      navPerfColor: navC(s.screen === 'perfumes' || s.screen === 'product'), navPerfBorder: navB(s.screen === 'perfumes' || s.screen === 'product'),
+      navQuizColor: navC(s.screen === 'quiz'), navQuizBorder: navB(s.screen === 'quiz'),
+      megaOpen: s.megaOpen,
+      openMega: () => this.setState({ megaOpen: true }),
+      closeMega: () => this.setState({ megaOpen: false }),
+      megaBrands: brands.slice(1).map(b => ({ name: b, go: e => { e.preventDefault(); this.go('perfumes', { brandFilter: b, famFilter: 'Todas' }); } })),
+      megaFamilies: families.slice(1).map(f => ({ name: f, go: e => { e.preventDefault(); this.go('perfumes', { famFilter: f, brandFilter: 'Todas' }); } })),
+      featured: (wk === 'dama' ? [all[0], all[3], all[5], all[1]] : all.slice(0, 4)).map(deco),
+      featuredTitle: wk === 'dama' ? 'Los más pedidos' : (wk === 'caballero' ? 'Perfumes para él' : 'Colonias para los peques'),
+      featuredCtaLabel: 'Ver todo el catálogo',
+      featuredCta: e => { e.preventDefault(); this.go('perfumes'); },
+      marqueeItems: brands.slice(1).concat(brands.slice(1), brands.slice(1)).flatMap(b => [{ t: b }, { t: '·' }]),
+      quizBannerTitle: wk === 'caballero' ? '¿Perdido entre tantos perfumes? Te ayudamos.' : wk === 'nino' ? '¿Cuál colonia para tu peque? Te ayudamos.' : '¿Perdida entre tantos perfumes? Nosotras te ayudamos.',
+      quizBannerText: wk === 'nino' ? 'Cuéntanos cuándo la va a usar, qué estilo le gusta y tu presupuesto. Te decimos exactamente cuál llevar.' : 'Cuéntanos cuándo lo vas a usar, qué estilo te gusta y tu presupuesto. Te decimos exactamente cuál llevar.',
+      perfumeTitle: wk === 'caballero' ? 'Perfumes para él' : wk === 'nino' ? 'Colonias para niños' : 'Perfumes originales',
+      perfumeIntro: wk === 'caballero' ? 'De Lattafa a Chanel: ' + catalog.length + ' fragancias masculinas, todas 100% originales y con envío a toda Venezuela.' : wk === 'nino' ? catalog.length + ' colonias suaves y seguras para los peques, con envío a toda Venezuela.' : 'De Lattafa a Chanel: ' + catalog.length + ' fragancias seleccionadas, todas 100% originales y con envío a toda Venezuela.',
+      ropaHomeTitle: wk === 'caballero' ? 'Ropa para él' : wk === 'nino' ? 'Ropa para los peques' : 'La ropa llegó',
+      editorialImg: wk === 'caballero' ? this.u('img/mb-15-casa-caballero.jpg') : wk === 'nino' ? this.u('img/mb-21-casa-ninos.jpg') : this.u('img/mb-13-casa-dama.jpg'),
+      editorialCredit: '',
+      editorialHref: wk === 'dama' ? 'https://unsplash.com/@laurachouette' : '',
+      casaTitle: wk === 'caballero' ? 'Todo para él, empezando por su perfume' : wk === 'nino' ? 'Todo para los peques, con el cariño de la casa' : 'Todo para ti, empezando por tu perfume',
+      casaText: wk === 'caballero' ? 'El Mundo Caballero de Mujer Bonita: perfumes originales, ropa con estilo y los accesorios que completan el look. Porque la casa también viste a los suyos.' : wk === 'nino' ? 'El Mundo Niños de Mujer Bonita: colonias suaves, ropa que aguanta el recreo y accesorios para el cole. Los más chiquitos también estrenan.' : 'Mujer Bonita es tu nueva tienda departamental: perfumes originales de las marcas que amas, ropa que te queda como quieres y accesorios que cierran el look.',
+      showRopaHome: true,
+      accBannerImg: wk === 'caballero' ? this.u('img/mb-16-accs-caballero.jpg') : wk === 'nino' ? this.u('img/photo_4934198068081528281_y.jpg') : this.u('img/mb-06-accesorios.jpg'),
+      accBannerCredit: '',
+      accBannerHref: wk === 'caballero' ? 'https://www.pexels.com/photo/elegant-men-s-accessories-flat-lay-on-white-28719728/' : wk === 'nino' ? 'https://unsplash.com/@kellysikkema' : 'https://unsplash.com/@muresan113',
+      worldKey: wk, worldLabel: wd.label,
+      worldPickerOpen: !s.world,
+      worldCards: ['dama', 'caballero', 'nino'].map((k, i) => ({ key: k, num: '0' + (i + 1), name: W[k].label, sub: W[k].sub, img: this.u(W[k].card), pick: () => { this.setState({ world: k, screen: 'home', ropaCat: 'Todas', famFilter: 'Todas', brandFilter: 'Todas', quizStep: 0, quizAnswers: [] }); window.scrollTo(0, 0); } })),
+      worldChips: ['dama', 'caballero', 'nino'].map(k => ({ name: W[k].label, pick: () => { this.setState({ world: k, screen: 'home', ropaCat: 'Todas', famFilter: 'Todas', brandFilter: 'Todas', quizStep: 0, quizAnswers: [] }); window.scrollTo(0, 0); }, bg: s.world === k ? '#241f21' : 'transparent', fg: s.world === k ? '#f6f1ee' : '#241f21' })),
+      heroImg: wk === 'dama' ? this.u('img/mb-12-hero-dama.jpg')
+        : wk === 'caballero' ? this.u('img/mb-14-hero-caballero.jpg')
+        : 'https://images.unsplash.com/photo-1476234251651-f353703a034d?q=75&w=2200&h=1300&auto=format&fit=crop',
+      heroCredit: '',
+      heroHref: wk === 'dama' ? 'https://www.pexels.com/photo/a-woman-holding-a-perfume-bottle-6954639/' : wk === 'caballero' ? 'https://www.pexels.com/photo/handsome-man-spraying-on-perfume-7923315/' : 'https://unsplash.com/@anniespratt',
+      heroKicker: wd.kicker, heroTitle: wd.title, heroCtaLabel: wd.cta,
+      heroCta: e => { e.preventDefault(); wk === 'dama' ? this.go('perfumes') : this.go('ropa'); },
+      showPerfHome: true,
+      ropaHome: ropaAll.slice(0, 4),
+      ropaBannerImg: wk === 'caballero' ? this.u('img/mb-17-ropa-caballero.jpg') : wk === 'nino' ? this.u('img/mb-04-campana-ninos.jpg') : this.u('img/mb-05-ropa.jpg'), ropaTitle: 'Ropa · ' + wd.label,
+      isRopa: s.screen === 'ropa', isAccesorios: s.screen === 'accs',
+      goRopa: e => { e && e.preventDefault && e.preventDefault(); this.go('ropa'); },
+      goAccesorios: e => { e && e.preventDefault && e.preventDefault(); this.go('accs'); },
+      navRopaColor: navC(s.screen === 'ropa'), navRopaBorder: navB(s.screen === 'ropa'),
+      navAccColor: navC(s.screen === 'accs'), navAccBorder: navB(s.screen === 'accs'),
+      ropaList: ropaAll.filter(r => s.ropaCat === 'Todas' || r.cat === s.ropaCat),
+      ropaFilters: ropaCats.map(c => chip(c, s.ropaCat === c, () => this.setState({ ropaCat: c }))),
+      accList: accAll,
+      catalog, catalogCount: all.length,
+      brandFilters: brands.map(b => chip(b, s.brandFilter === b, () => this.setState({ brandFilter: b }))),
+      familyFilters: families.map(f => chip(f, s.famFilter === f, () => this.setState({ famFilter: f }))),
+      familyTiles: families.slice(1).map(f => { const n = all.filter(p => p.family === f).length;
+        return { name: f, desc: famDescs[f], count: n + ' perfumes', open: () => this.go('perfumes', { famFilter: f, brandFilter: 'Todas' }) }; }),
+      prod, addCurrent: () => this.addToCart(prod),
+      prodResources: [{ src: prod.img, label: 'Packshot principal', meta: 'JPG · 4:5 · alta resolución', file: prod.slug + '-packshot.jpg' }]
+        .concat(prod.family && this.famImg(prod.family) ? [{ src: this.famImg(prod.family), label: 'Ambiente · ' + prod.family, meta: 'JPG · 1:1 · para historias', file: prod.slug + '-ambiente.jpg' }] : [])
+        .filter(r => r.src),
+      videoReady: !!(s.videos || {})[prod.slug], videoPending: !(s.videos || {})[prod.slug],
+      videoSrc: (s.videos || {})[prod.slug] || '',
+      videoEl: (s.videos || {})[prod.slug] ? React.createElement('video', { key: prod.slug, src: (s.videos || {})[prod.slug], controls: true, loop: true, muted: true, playsInline: true, style: { position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' } }) : null,
+      videoFile: prod.slug + '-reel.webm', videoStatus: s.videoStatus || 'Generando reel de muestra',
+      prodInStockHere: this.inStock(prod.slug, here), prodOutHere: !this.inStock(prod.slug, here),
+      prodAvailColor: this.inStock(prod.slug, here) ? '#2e8b57' : '#b3121b',
+      prodAvailText: this.inStock(prod.slug, here) ? 'Disponible en ' + hereB.name : 'Agotado en ' + hereB.name,
+      prodOtherBranches: BR.filter(b => b.k !== here && this.inStock(prod.slug, b.k)).map(b => ({ ...b, feeLabel: '+' + this.fmt(b.fee) + ' envío',
+        switchTo: () => this.setState({ branch: b.k }),
+        orderFrom: () => this.setState({ remoteNotice: { p: prod, branch: b.k, branchName: b.name, prodName: prod.name, eta: b.eta, feeLabel: this.fmt(b.fee) } }) })),
+      branchName: hereB.name, branchMenuOpen: s.branchMenuOpen,
+      toggleBranchMenu: e => { e.preventDefault(); this.setState(st => ({ branchMenuOpen: !st.branchMenuOpen })); },
+      branchOptions: BR.map(b => ({ ...b, mark: b.k === here ? 'Actual' : '', bg: b.k === here ? '#f1e6e0' : 'transparent', bd: b.k === here ? '#b3121b' : 'transparent', pick: () => this.setState({ branch: b.k, branchMenuOpen: false }) })),
+      remoteNoticeOpen: !!s.remoteNotice, remoteNotice: s.remoteNotice || { branchName: '', prodName: '', eta: '', feeLabel: '' },
+      closeRemoteNotice: () => this.setState({ remoteNotice: null }),
+      confirmRemoteAdd: () => { const n = s.remoteNotice; if (n) this.addToCart(n.p, n.branch); },
+      cartHasRemote: transfer > 0, transferLabel: this.fmt(transfer),
+      prodHasNotes: !!(perfProd || !depProd),
+      prodBackLabel: perfProd || !depProd ? '← Volver al catálogo' : prodIsRopa ? '← Volver a ropa' : '← Volver a accesorios',
+      prodBack: e => { e.preventDefault(); this.go(perfProd || !depProd ? 'perfumes' : prodIsRopa ? 'ropa' : 'accs'); },
+      quickOpen: !!s.quickSlug, quickProd, quickIsPerfume: true,
+      closeQuick: e => { e && e.preventDefault && e.preventDefault(); this.setState({ quickSlug: null }); },
+      quizActive: !quizDone, quizDone,
+      quizProgress: quizDone ? 'Resultado' : 'Pregunta ' + (s.quizStep + 1) + ' de 3',
+      quizTitle: quizDone ? 'Lo encontramos.' : qz[s.quizStep].title,
+      quizOptions: quizDone ? [] : qz[s.quizStep].options.map(o => ({ ...o, pick: () => this.setState(st => ({ quizAnswers: [...st.quizAnswers, o.v], quizStep: st.quizStep + 1 })) })),
+      quizResult: quizResult || { slug: '', brand: '', name: '', tagline: '', priceLabel: '', img: '', credit: '', chref: '', add: () => {}, openBtn: () => {} },
+      quizReason,
+      quizRestart: e => { e.preventDefault(); this.setState({ quizStep: 0, quizAnswers: [] }); },
+      isCheckout: s.screen === 'checkout', isConfirm: s.screen === 'confirm',
+      goCheckout: () => { const n = s.cart.reduce((a, it) => a + it.qty, 0); if (n >= MINQ) this.go('checkout', { ckStep: 0 }); },
+      ckIsDatos: s.ckStep === 0, ckIsEnvio: s.ckStep === 1, ckIsPago: s.ckStep === 2,
+      ckSteps: ['Datos', 'Envío', 'Pago'].map((label, i) => ({ label, n: i + 1,
+        go: () => { if (i <= s.ckStep) this.setState({ ckStep: i }); },
+        bg: s.ckStep === i ? '#241f21' : 'transparent', fg: s.ckStep === i ? '#f6f1ee' : (i < s.ckStep ? '#241f21' : 'rgba(36,31,33,0.45)'),
+        bd: s.ckStep === i ? '#241f21' : 'rgba(36,31,33,0.25)',
+        numBg: i < s.ckStep ? '#b3121b' : s.ckStep === i ? '#f6f1ee' : 'rgba(36,31,33,0.12)',
+        numFg: i < s.ckStep ? '#f6f1ee' : s.ckStep === i ? '#241f21' : 'rgba(36,31,33,0.6)' })),
+      ckName: s.ckName, setCkName: e => this.setState({ ckName: e.target.value }),
+      ckPhone: s.ckPhone, setCkPhone: e => this.setState({ ckPhone: e.target.value }),
+      ckEmail: s.ckEmail, setCkEmail: e => this.setState({ ckEmail: e.target.value }),
+      ckCity: s.ckCity, setCkCity: e => this.setState({ ckCity: e.target.value }),
+      ckAddress: s.ckAddress, setCkAddress: e => this.setState({ ckAddress: e.target.value }),
+      ckNext: () => { this.setState(st => ({ ckStep: Math.min(2, st.ckStep + 1) })); window.scrollTo(0, 0); },
+      shipOptions: [
+        { k: 'delivery', name: 'Delivery Caracas', desc: 'Entrega el mismo día o al siguiente', price: 4 },
+        { k: 'nacional', name: 'Envío nacional (MRW / Zoom)', desc: '24–72 h a toda Venezuela, pago en oficina o a domicilio', price: 6 },
+        { k: 'retiro', name: 'Retiro en tienda', desc: 'Te avisamos cuando esté listo para retirar', price: 0 }
+      ].map(o => ({ ...o, priceLabel: o.price ? this.fmt(o.price) : 'Gratis', pick: () => this.setState({ shipMethod: o.k }),
+        bg: s.shipMethod === o.k ? '#f1e6e0' : '#fdfbf9', bd: s.shipMethod === o.k ? '#b3121b' : 'rgba(36,31,33,0.18)' })),
+      payOptions: [
+        { k: 'pagomovil', name: 'Pago móvil', desc: 'Transferencia inmediata en Bs. a la tasa del día' },
+        { k: 'zelle', name: 'Zelle', desc: 'Pago en USD desde tu banco en EE. UU.' },
+        { k: 'tarjeta', name: 'Tarjeta', desc: 'Débito o crédito nacional' },
+        { k: 'efectivo', name: 'Efectivo USD', desc: 'Pagas al recibir o al retirar' }
+      ].map(o => ({ ...o, pick: () => this.setState({ payMethod: o.k }),
+        bg: s.payMethod === o.k ? '#f1e6e0' : '#fdfbf9', bd: s.payMethod === o.k ? '#b3121b' : 'rgba(36,31,33,0.18)' })),
+      payNote: s.payMethod === 'pagomovil' ? 'Al confirmar te mostramos los datos de pago móvil y validamos tu transferencia por WhatsApp en minutos.'
+        : s.payMethod === 'zelle' ? 'Al confirmar te enviamos el correo Zelle. Tu pedido se despacha al verificar el pago.'
+        : s.payMethod === 'tarjeta' ? 'Te contactamos con el enlace de pago seguro para completar la transacción.'
+        : 'Pagas en efectivo al momento de la entrega o retiro. Ten el monto exacto a la mano.',
+      ckShipLabel: (() => { const p = { delivery: 4, nacional: 6, retiro: 0 }[s.shipMethod]; return p ? this.fmt(p) : 'Gratis'; })(),
+      ckTotalLabel: this.fmt(total + transfer + ({ delivery: 4, nacional: 6, retiro: 0 }[s.shipMethod] || 0)),
+      ckConfirm: () => {
+        const shipNames = { delivery: 'Delivery Caracas', nacional: 'MRW / Zoom', retiro: 'retiro en tienda' };
+        const payNames = { pagomovil: 'Pago móvil', zelle: 'Zelle', tarjeta: 'tarjeta', efectivo: 'efectivo USD' };
+        const order = { no: 'MB-' + Math.floor(1000 + Math.random() * 9000), name: (s.ckName || 'bella').split(' ')[0],
+          items: s.cart.map(it => ({ ...it, lineLabel: this.fmt(it.price * it.qty) })).concat(transfer > 0 ? [{ qty: 1, name: 'Envío entre sucursales', lineLabel: this.fmt(transfer) }] : []),
+          totalLabel: this.fmt(total + transfer + ({ delivery: 4, nacional: 6, retiro: 0 }[s.shipMethod] || 0)),
+          ship: shipNames[s.shipMethod], pay: payNames[s.payMethod] };
+        this.setState({ lastOrder: order, cart: [], screen: 'confirm' }); window.scrollTo(0, 0);
+      },
+      orderNo: (s.lastOrder || {}).no || '', orderName: (s.lastOrder || {}).name || '',
+      orderItems: (s.lastOrder || {}).items || [], orderTotalLabel: (s.lastOrder || {}).totalLabel || '',
+      orderShip: (s.lastOrder || {}).ship || '', orderPay: (s.lastOrder || {}).pay || '',
+      megaOpen: !!s.megaWorld,
+      closeMega: () => { if (this.state.megaWorld) this.setState({ megaWorld: null }); },
+      worldPickerOpen: false,
+      cartOpen: s.cartOpen, openCart: e => { e.preventDefault(); this.setState({ cartOpen: true }); },
+      closeCart: e => { e && e.preventDefault && e.preventDefault(); this.setState({ cartOpen: false }); },
+      closeCartToPerfumes: e => { e.preventDefault(); this.go('perfumes'); },
+      cartItems: cart, cartCount: s.cart.reduce((a, it) => a + it.qty, 0),
+      minQty: MINQ, minOk: qty >= MINQ, minNotOk: qty < MINQ, minLeft: Math.max(0, MINQ - qty),
+      minPct: Math.min(100, Math.round(qty / MINQ * 100)) + '%',
+      minAccent: qty >= MINQ ? '#2e8b57' : '#b3121b', minBg: qty >= MINQ ? '#eaf3ec' : '#fdf1ea',
+      minTicks: [3, 6, 9].map(n => ({ left: (n / MINQ * 100) + '%' })),
+      minMsg: qty === 0 ? 'Vendemos solo al mayor: tu pedido debe sumar al menos ' + MINQ + ' unidades entre todos los productos.'
+        : qty >= MINQ ? '¡Listo! Ya alcanzaste el mínimo al mayor. Puedes finalizar tu compra o seguir agregando.'
+        : 'Llevas ' + qty + (qty === 1 ? ' unidad' : ' unidades') + '. Agrega ' + (MINQ - qty) + ' más para completar el pedido mínimo al mayor.',
+      cartEmpty: s.cart.length === 0, cartHasItems: s.cart.length > 0,
+      cartTotalLabel: this.fmt(total)
+    };
+  }
+}
+</script>
+</body>
+</html>
